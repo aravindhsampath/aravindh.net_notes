@@ -15,7 +15,8 @@
     {{- $css := resources.Get "css/main.css" | minify | fingerprint -}}
     <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" />
 
-    <script src="{{ "pagefind/pagefind.js" | relURL }}" defer></script>
+    <meta name="pagefind-script" content="{{ "pagefind/pagefind.js" | relURL }}" />
+
     {{- $js := resources.Get "js/main.js" | minify | fingerprint -}}
     <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
   </head>
@@ -28,4 +29,3 @@
     {{ partial "footer.html" . }}
   </body>
 </html>
-

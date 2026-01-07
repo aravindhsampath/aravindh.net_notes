@@ -87,6 +87,30 @@ function initSearch() {
   const results = document.getElementById("search-results");
   if (!input || !results) return;
 
+  let pagefindLoading = null;
+  function getPagefindScriptUrl() {
+    const meta = document.querySelector('meta[name="pagefind-script"]');
+    const path = meta?.getAttribute("content") || "pagefind/pagefind.js";
+    return new URL(path, window.location.origin).toString();
+  }
+
+  async function loadPagefind() {
+    if (window.pagefind && typeof window.pagefind.search === "function") return window.pagefind;
+    if (pagefindLoading) return pagefindLoading;
+
+    const url = getPagefindScriptUrl();
+    pagefindLoading = import(url)
+      .then((mod) => {
+        window.pagefind = mod;
+        return mod;
+      })
+      .catch((err) => {
+        pagefindLoading = null;
+        throw err;
+      });
+    return pagefindLoading;
+  }
+
   function closeResults() {
     results.hidden = true;
     results.innerHTML = "";
@@ -105,11 +129,14 @@ function initSearch() {
     const q = term.trim();
     if (!q) return closeResults();
 
-    if (!window.pagefind || typeof window.pagefind.search !== "function") {
+    let pagefind;
+    try {
+      pagefind = await loadPagefind();
+    } catch {
       return renderEmpty("Search index isn’t available yet. Run Pagefind once after building.");
     }
 
-    const search = await window.pagefind.search(q);
+    const search = await pagefind.search(q);
     if (!search.results || search.results.length === 0) {
       return renderEmpty("No results.");
     }
@@ -150,4 +177,3 @@ document.addEventListener("DOMContentLoaded", () => {
   initThemeToggle();
   initSearch();
 });
-

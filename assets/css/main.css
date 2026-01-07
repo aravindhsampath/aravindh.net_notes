@@ -1,4 +1,50 @@
 :root {
+  --font-sans:
+    "Alegreya Sans",
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial,
+    "Apple Color Emoji",
+    "Segoe UI Emoji";
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  src: url("../fonts/alegreya-sans/AlegreyaSans-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  src: url("../fonts/alegreya-sans/AlegreyaSans-LightItalic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  src: url("../fonts/alegreya-sans/AlegreyaSans-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  src: url("../fonts/alegreya-sans/AlegreyaSans-MediumItalic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+}
+
+:root {
   color-scheme: light dark;
 
   --bg: #ffffff;
@@ -64,19 +110,20 @@ body {
 
 body {
   margin: 0;
-  font-family:
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    Segoe UI,
-    Roboto,
-    Helvetica,
-    Arial,
-    "Apple Color Emoji",
-    "Segoe UI Emoji";
+  font-family: var(--font-sans);
+  font-weight: 300;
   line-height: 1.55;
   background: var(--bg);
   color: var(--fg);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
 }
 
 a {
@@ -143,7 +190,7 @@ a:hover {
 }
 
 .brand {
-  font-weight: 650;
+  font-weight: 500;
   letter-spacing: -0.01em;
   color: var(--fg);
 }
@@ -224,7 +271,7 @@ a:hover {
 }
 
 .search-results .result-title {
-  font-weight: 600;
+  font-weight: 500;
   margin: 0 0 2px 0;
 }
 
@@ -293,7 +340,7 @@ a:hover {
 }
 
 .note-title {
-  font-weight: 650;
+  font-weight: 500;
 }
 
 .note-date {
@@ -377,4 +424,3 @@ a:hover {
     gap: 6px;
   }
 }
-
