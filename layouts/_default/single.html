@@ -1,0 +1,33 @@
+{{ define "main" }}
+  <article class="prose" data-pagefind-body>
+    <header class="article-header">
+      <h1 class="article-title" data-pagefind-meta="title">{{ .Title }}</h1>
+      {{- if not .Lastmod.IsZero -}}
+        <time class="article-date muted" datetime="{{ .Lastmod.Format "2006-01-02" }}" data-pagefind-meta="date">
+          {{ .Lastmod.Format "2006-01-02" }}
+        </time>
+      {{- end -}}
+    </header>
+
+    <div class="article-content">
+      {{ .Content }}
+    </div>
+  </article>
+
+  {{- if eq .Section "notes" -}}
+    {{- $candidates := where site.RegularPages "Section" "notes" -}}
+    {{- $candidates = sort $candidates "Lastmod" "desc" -}}
+    {{- $more := first 6 (where $candidates "RelPermalink" "ne" .RelPermalink) -}}
+
+    {{- if len $more -}}
+      <aside class="up-next" data-pagefind-ignore>
+        <h2 class="section-title">Up next</h2>
+        <ul class="up-next-list">
+          {{- range $more -}}
+            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+          {{- end -}}
+        </ul>
+      </aside>
+    {{- end -}}
+  {{- end -}}
+{{ end }}

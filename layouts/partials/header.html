@@ -1,0 +1,28 @@
+<header class="site-header" data-pagefind-ignore>
+  <div class="inner">
+    <a class="brand" href="{{ relURL "/" }}">{{ site.Params.headerTitle | default site.Title }}</a>
+
+    <div class="header-actions">
+      <div class="search">
+        <label class="sr-only" for="search-input">Search</label>
+        <input
+          id="search-input"
+          class="search-input"
+          type="search"
+          placeholder="Search notes…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <div id="search-results" class="search-results" hidden></div>
+      </div>
+
+      <button id="theme-toggle" class="icon-button" type="button" aria-label="Toggle theme">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path
+            d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12Zm0-16a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1Zm0 18a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1Zm10-8a1 1 0 0 1-1 1h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1ZM4 12a1 1 0 0 1-1 1H2a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1Zm15.07 6.07a1 1 0 0 1 0 1.41l-.71.71a1 1 0 1 1-1.42-1.41l.71-.71a1 1 0 0 1 1.42 0ZM7.06 6.06a1 1 0 0 1 0 1.42l-.7.7A1 1 0 0 1 4.93 6.76l.7-.7a1 1 0 0 1 1.43 0Zm12.01-1.13a1 1 0 0 1 0 1.42l-.71.7a1 1 0 1 1-1.42-1.41l.71-.7a1 1 0 0 1 1.42 0ZM7.05 17.95a1 1 0 0 1 0 1.41l-.7.71a1 1 0 1 1-1.42-1.42l.7-.7a1 1 0 0 1 1.42 0Z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,32 @@
+{{ define "main" }}
+  <header class="list-header">
+    <h1 class="section-title">{{ .Title }}</h1>
+  </header>
+
+  {{- $pages := .Pages -}}
+  {{- if eq .Section "notes" -}}
+    {{- $pages = sort $pages "Lastmod" "desc" -}}
+  {{- end -}}
+
+  {{- if not (len $pages) -}}
+    <p class="muted">Nothing here yet.</p>
+  {{- else -}}
+    <ol class="notes">
+      {{- range $pages -}}
+        <li class="note-item">
+          <a class="note-link" href="{{ .RelPermalink }}">
+            <div class="note-title-row">
+              <span class="note-title">{{ .Title }}</span>
+              <time class="note-date" datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "2006-01-02" }}</time>
+            </div>
+            {{- $excerpt := .Summary | plainify | htmlUnescape | truncate 220 -}}
+            {{- if $excerpt -}}
+              <p class="note-excerpt">{{ $excerpt }}</p>
+            {{- end -}}
+          </a>
+        </li>
+      {{- end -}}
+    </ol>
+  {{- end -}}
+{{ end }}
+

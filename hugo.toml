@@ -1,3 +1,13 @@
 baseURL = 'https://aravindh.net/'
 languageCode = 'en-us'
-title = 'Aravindh Sampathkumar personal website'
+title = 'Aravindh'
+
+summaryLength = 40
+
+[params]
+headerTitle = 'Aravindh'
+introTitle = 'Welcome to my digital garden.'
+introText = 'I write about computers, my wood working adventures and anything that captures my fascination enough to obsess over for a time.'
+
+[frontmatter]
+lastmod = [':fileModTime', 'lastmod', 'date', 'publishDate']
