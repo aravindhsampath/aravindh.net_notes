@@ -1,0 +1,101 @@
+{{- $dest := .Destination -}}
+{{- $isRemote := or (hasPrefix $dest "http://") (hasPrefix $dest "https://") -}}
+{{- $isData := hasPrefix $dest "data:" -}}
+{{- if not (or $isRemote $isData) -}}
+  {{- if in $dest "static/" -}}
+    {{- $parts := split $dest "static/" -}}
+    {{- $dest = index $parts (sub (len $parts) 1) -}}
+  {{- end -}}
+  {{- $dest = strings.TrimPrefix "/" $dest -}}
+{{- end -}}
+
+{{- $destPath := $dest -}}
+{{- $destUrl := cond (or $isRemote $isData) $dest ($destPath | relURL) -}}
+
+{{- $sizes := "(max-width: 920px) 100vw, 920px" -}}
+{{- $widths := slice 480 960 1440 -}}
+
+{{- $loading := "lazy" -}}
+{{- $fetchpriority := "" -}}
+{{- if and .Page (eq .Page.Kind "page") -}}
+  {{- $seen := .Page.Scratch.Get "rendered_first_image" -}}
+  {{- if not $seen -}}
+    {{- .Page.Scratch.Set "rendered_first_image" true -}}
+    {{- $loading = "eager" -}}
+    {{- $fetchpriority = "high" -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $basePath := strings.Trim (relURL "") "/" -}}
+{{- if and $basePath (hasPrefix $destPath (printf "%s/" $basePath)) -}}
+  {{- $destPath = strings.TrimPrefix (printf "%s/" $basePath) $destPath -}}
+{{- end -}}
+
+{{- $ext := lower (path.Ext $destPath) -}}
+{{- $base := path.Base $destPath -}}
+{{- $name := strings.TrimSuffix $ext $base -}}
+{{- $dir := path.Dir $destPath -}}
+{{- $genDir := path.Join $dir "gen" -}}
+
+{{- $isSvg := eq $ext ".svg" -}}
+{{- $isHeic := or (eq $ext ".heic") (eq $ext ".heif") -}}
+{{- $fallbackExt := cond $isHeic ".jpg" $ext -}}
+
+{{- $fallbackSet := slice -}}
+{{- $webpSet := slice -}}
+{{- $fallbackSrc := "" -}}
+
+{{- if and (not $isRemote) (not $isData) (hasPrefix $destPath "images/") $isSvg -}}
+  {{- $svgVar := printf "%s/%s.svg" $genDir $name -}}
+  {{- if fileExists (path.Join "static" $svgVar) -}}
+    {{- $destUrl = $svgVar | relURL -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if and (not $isRemote) (not $isData) (hasPrefix $destPath "images/") (not $isSvg) -}}
+  {{- range $widths -}}
+    {{- $w := . -}}
+    {{- $fallbackVar := printf "%s/%s-w%d%s" $genDir $name $w $fallbackExt -}}
+    {{- if fileExists (path.Join "static" $fallbackVar) -}}
+      {{- $fallbackSet = $fallbackSet | append (printf "%s %dw" ($fallbackVar | relURL) $w) -}}
+      {{- if not $fallbackSrc -}}
+        {{- $fallbackSrc = $fallbackVar -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- $webpVar := printf "%s/%s-w%d.webp" $genDir $name $w -}}
+    {{- if fileExists (path.Join "static" $webpVar) -}}
+      {{- $webpSet = $webpSet | append (printf "%s %dw" ($webpVar | relURL) $w) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if $fallbackSrc -}}
+  {{- $destUrl = $fallbackSrc | relURL -}}
+{{- end -}}
+
+{{- if or (gt (len $webpSet) 0) (gt (len $fallbackSet) 0) -}}
+  <picture>
+    {{- if gt (len $webpSet) 0 -}}
+      <source type="image/webp" srcset="{{ delimit $webpSet ", " }}" sizes="{{ $sizes }}" />
+    {{- end -}}
+    <img
+      src="{{ $destUrl | safeURL }}"
+      alt="{{ .Text }}"
+      {{- with .Title }} title="{{ . }}"{{ end -}}
+      {{- if gt (len $fallbackSet) 0 }} srcset="{{ delimit $fallbackSet ", " }}" sizes="{{ $sizes }}"{{ end -}}
+      loading="{{ $loading }}"
+      {{- if $fetchpriority }} fetchpriority="{{ $fetchpriority }}"{{ end -}}
+      decoding="async"
+    />
+  </picture>
+{{- else -}}
+  <img
+    src="{{ $destUrl | safeURL }}"
+    alt="{{ .Text }}"
+    {{- with .Title }} title="{{ . }}"{{ end -}}
+    loading="{{ $loading }}"
+    {{- if $fetchpriority }} fetchpriority="{{ $fetchpriority }}"{{ end -}}
+    decoding="async"
+  />
+{{- end -}}

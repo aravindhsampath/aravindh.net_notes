@@ -4,3 +4,7 @@
 public/
 resources/
 .hugo_build.lock
+
+# Generated responsive images
+static/images/_gen/
+static/images/gen/

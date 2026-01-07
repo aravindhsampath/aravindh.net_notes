@@ -136,6 +136,14 @@ function initSearch() {
       return renderEmpty("Search index isn’t available yet. Run Pagefind once after building.");
     }
 
+    if (typeof pagefind.preload === "function") {
+      try {
+        await pagefind.preload();
+      } catch {
+        // ignore
+      }
+    }
+
     const search = await pagefind.search(q);
     if (!search.results || search.results.length === 0) {
       return renderEmpty("No results.");

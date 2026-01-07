@@ -19,6 +19,15 @@
               <span class="note-title">{{ .Title }}</span>
               <time class="note-date" datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "2006-01-02" }}</time>
             </div>
+            {{- with .Params.tags -}}
+              <ul class="tag-list tag-list--compact">
+                {{- range . -}}
+                  <li class="tag">
+                    <span class="tag-pill">#{{ . }}</span>
+                  </li>
+                {{- end -}}
+              </ul>
+            {{- end -}}
             {{- $excerpt := .Summary | plainify | htmlUnescape | truncate 220 -}}
             {{- if $excerpt -}}
               <p class="note-excerpt">{{ $excerpt }}</p>
@@ -29,4 +38,3 @@
     </ol>
   {{- end -}}
 {{ end }}
-

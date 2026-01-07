@@ -19,6 +19,9 @@ fi
 
 PORT="${PORT:-1313}"
 
+echo "Optimizing images (responsive variants)…"
+./scripts/optimize-images.sh || echo "Image optimization skipped/failed; originals may be served." >&2
+
 run_pagefind() {
   rm -rf public/pagefind
   npx -y pagefind --site public --output-path public/pagefind

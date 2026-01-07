@@ -11,3 +11,6 @@ introText = 'I write about computers, my wood working adventures and anything th
 
 [frontmatter]
 lastmod = [':fileModTime', 'lastmod', 'date', 'publishDate']
+
+[taxonomies]
+tag = 'tags'

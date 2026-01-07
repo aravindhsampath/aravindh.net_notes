@@ -7,6 +7,21 @@
           {{ .Lastmod.Format "2006-01-02" }}
         </time>
       {{- end -}}
+
+      {{- with .Params.tags -}}
+        {{- $tags := . -}}
+        <div class="tag-row" data-pagefind-meta="tags">
+          <span class="muted">Tags:</span>
+          <ul class="tag-list">
+            {{- range $tags -}}
+              {{- $tag := . -}}
+              <li class="tag">
+                <a href="{{ (printf "tags/%s/" (urlize $tag)) | relURL }}">#{{ $tag }}</a>
+              </li>
+            {{- end -}}
+          </ul>
+        </div>
+      {{- end -}}
     </header>
 
     <div class="article-content">

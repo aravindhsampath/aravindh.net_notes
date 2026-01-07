@@ -365,6 +365,56 @@ a:hover {
 .article-title {
   margin: 0 0 8px 0;
   letter-spacing: -0.02em;
+  font-size: clamp(1.7rem, 1.6vw + 1.1rem, 2.3rem);
+}
+
+.article-content h1 {
+  font-size: 1.9rem;
+  letter-spacing: -0.02em;
+}
+
+.tag-row {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tag-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag a,
+.tag-pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--fg);
+  font-weight: 500;
+  font-size: 0.92rem;
+}
+
+.tag a:hover {
+  text-decoration: none;
+}
+
+.tag-list--compact {
+  margin-top: 10px;
+  gap: 6px;
+}
+
+.tag-list--compact .tag a,
+.tag-list--compact .tag-pill {
+  padding: 2px 8px;
+  font-size: 0.85rem;
 }
 
 .article-content :where(h2, h3) {
@@ -390,6 +440,14 @@ a:hover {
   background: color-mix(in srgb, var(--card) 70%, transparent);
   border: 1px solid var(--border);
   overflow: auto;
+}
+
+.article-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card);
 }
 
 .up-next {
