@@ -11,11 +11,13 @@
         {{ .Title }} · {{ site.Title }}
       {{- end -}}
     </title>
+    {{ partial "head-meta.html" . }}
 
     {{- $css := resources.Get "css/main.css" | minify | fingerprint -}}
     <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" />
 
     <meta name="pagefind-script" content="{{ "pagefind/pagefind.js" | relURL }}" />
+    <meta name="pagefind-highlight-script" content="{{ "pagefind/pagefind-highlight.js" | relURL }}" />
 
     {{- $js := resources.Get "js/main.js" | minify | fingerprint -}}
     <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>

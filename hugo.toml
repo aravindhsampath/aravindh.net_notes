@@ -4,13 +4,20 @@ title = 'Aravindh'
 
 summaryLength = 40
 
+[pagination]
+pagerSize = 20
+
 [params]
 headerTitle = 'Aravindh'
 introTitle = 'Welcome to my digital garden.'
 introText = 'I write about computers, my wood working adventures and anything that captures my fascination enough to obsess over for a time.'
+description = 'Welcome to my digital garden. I write about computers, my wood working adventures and anything that captures my fascination enough to obsess over for a time.'
+
+# Optional: put a share image under `static/` and set this to its path, e.g. "/images/og.png"
+ogImage = ''
 
 [frontmatter]
-lastmod = [':fileModTime', 'lastmod', 'date', 'publishDate']
+lastmod = ['lastmod', ':fileModTime', 'date', 'publishDate']
 
 [taxonomies]
 tag = 'tags'

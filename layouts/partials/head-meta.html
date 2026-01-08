@@ -1,0 +1,50 @@
+{{- $title := "" -}}
+{{- if .IsHome -}}
+  {{- $title = site.Title -}}
+{{- else -}}
+  {{- $title = printf "%s · %s" .Title site.Title -}}
+{{- end -}}
+
+{{- $description := "" -}}
+{{- if .IsHome -}}
+  {{- $description = site.Params.description | default site.Params.introText | default "" -}}
+{{- else -}}
+  {{- $description = .Params.description | default (.Summary | plainify) | default "" -}}
+{{- end -}}
+{{- $description = $description | plainify | htmlUnescape | truncate 200 -}}
+
+{{- $canonical := .Permalink -}}
+
+{{- $ogImage := "" -}}
+{{- with .Params.ogImage -}}
+  {{- $ogImage = . -}}
+{{- else -}}
+  {{- with site.Params.ogImage -}}
+    {{- $ogImage = . -}}
+  {{- end -}}
+{{- end -}}
+{{- if $ogImage -}}
+  {{- if not (or (hasPrefix $ogImage "http://") (hasPrefix $ogImage "https://")) -}}
+    {{- $ogImage = ($ogImage | relURL) | absURL -}}
+  {{- end -}}
+{{- end -}}
+
+<link rel="canonical" href="{{ $canonical }}" />
+<meta name="description" content="{{ $description }}" />
+
+<meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}" />
+<meta property="og:site_name" content="{{ site.Title }}" />
+<meta property="og:title" content="{{ $title }}" />
+<meta property="og:description" content="{{ $description }}" />
+<meta property="og:url" content="{{ $canonical }}" />
+{{- if $ogImage }}
+  <meta property="og:image" content="{{ $ogImage }}" />
+{{- end }}
+
+<meta name="twitter:card" content="{{ if $ogImage }}summary_large_image{{ else }}summary{{ end }}" />
+<meta name="twitter:title" content="{{ $title }}" />
+<meta name="twitter:description" content="{{ $description }}" />
+{{- if $ogImage }}
+  <meta name="twitter:image" content="{{ $ogImage }}" />
+{{- end }}
+

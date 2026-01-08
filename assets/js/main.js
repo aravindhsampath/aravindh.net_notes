@@ -1,5 +1,11 @@
 const THEME_KEY = "theme";
 
+function getMetaScriptUrl(metaName, fallbackPath) {
+  const meta = document.querySelector(`meta[name="${metaName}"]`);
+  const path = meta?.getAttribute("content") || fallbackPath;
+  return new URL(path, window.location.origin).toString();
+}
+
 function getSystemTheme() {
   return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
     ? "dark"
@@ -70,6 +76,10 @@ function escapeHtml(input) {
     .replaceAll("'", "&#039;");
 }
 
+function escapeRegExp(input) {
+  return input.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
 function stripHtml(input) {
   const el = document.createElement("div");
   el.innerHTML = input;
@@ -82,16 +92,45 @@ function truncate(input, maxChars) {
   return normalized.slice(0, maxChars - 1).trimEnd() + "…";
 }
 
+function parseQueryTerms(query) {
+  return query
+    .trim()
+    .split(/\s+/)
+    .map((t) => t.trim())
+    .filter(Boolean);
+}
+
+function highlightTextToHtml(text, terms) {
+  if (!text) return "";
+  if (!terms || terms.length === 0) return escapeHtml(text);
+
+  const unique = Array.from(new Set(terms))
+    .filter(Boolean)
+    .sort((a, b) => b.length - a.length);
+  if (unique.length === 0) return escapeHtml(text);
+
+  const re = new RegExp(`(${unique.map(escapeRegExp).join("|")})`, "gi");
+  const parts = text.split(re);
+  return parts
+    .map((part) => {
+      if (!part) return "";
+      if (re.test(part)) {
+        return `<mark class="search-hit">${escapeHtml(part)}</mark>`;
+      }
+      return escapeHtml(part);
+    })
+    .join("");
+}
+
 function initSearch() {
   const input = document.getElementById("search-input");
   const results = document.getElementById("search-results");
   if (!input || !results) return;
 
   let pagefindLoading = null;
+  let pagefindConfigured = false;
   function getPagefindScriptUrl() {
-    const meta = document.querySelector('meta[name="pagefind-script"]');
-    const path = meta?.getAttribute("content") || "pagefind/pagefind.js";
-    return new URL(path, window.location.origin).toString();
+    return getMetaScriptUrl("pagefind-script", "pagefind/pagefind.js");
   }
 
   async function loadPagefind() {
@@ -100,8 +139,12 @@ function initSearch() {
 
     const url = getPagefindScriptUrl();
     pagefindLoading = import(url)
-      .then((mod) => {
+      .then(async (mod) => {
         window.pagefind = mod;
+        if (!pagefindConfigured && typeof mod.options === "function") {
+          pagefindConfigured = true;
+          await mod.options({ highlightParam: "pagefind-highlight" });
+        }
         return mod;
       })
       .catch((err) => {
@@ -109,6 +152,16 @@ function initSearch() {
         throw err;
       });
     return pagefindLoading;
+  }
+
+  function addHighlightToUrl(urlString, query) {
+    const url = new URL(urlString, window.location.origin);
+    const terms = parseQueryTerms(query);
+
+    for (const term of terms) {
+      url.searchParams.append("pagefind-highlight", term);
+    }
+    return url.toString();
   }
 
   function closeResults() {
@@ -152,12 +205,15 @@ function initSearch() {
     const top = search.results.slice(0, 8);
     const data = await Promise.all(top.map((r) => r.data()));
 
+    const terms = parseQueryTerms(q);
     results.innerHTML = data
       .map((item) => {
-        const title = escapeHtml(item.meta?.title || item.title || "Untitled");
-        const url = escapeHtml(item.url);
-        const excerpt = truncate(stripHtml(item.excerpt || ""), 160);
-        return `<a href="${url}"><div class="result-title">${title}</div><p class="result-excerpt">${escapeHtml(excerpt)}</p></a>`;
+        const rawTitle = item.meta?.title || item.title || "Untitled";
+        const url = escapeHtml(addHighlightToUrl(item.url, q));
+        const excerptText = truncate(stripHtml(item.excerpt || ""), 160);
+        const titleHtml = highlightTextToHtml(rawTitle, terms);
+        const excerptHtml = highlightTextToHtml(excerptText, terms);
+        return `<a href="${url}"><div class="result-title">${titleHtml}</div><p class="result-excerpt">${excerptHtml}</p></a>`;
       })
       .join("");
     openResults();
@@ -184,4 +240,16 @@ function initSearch() {
 document.addEventListener("DOMContentLoaded", () => {
   initThemeToggle();
   initSearch();
+
+  const params = new URLSearchParams(window.location.search);
+  if (params.getAll("pagefind-highlight").length > 0) {
+    import(getMetaScriptUrl("pagefind-highlight-script", "pagefind/pagefind-highlight.js"))
+      .then((mod) => {
+        const Highlighter = mod?.default || window.PagefindHighlight;
+        if (typeof Highlighter === "function") {
+          new Highlighter({ addStyles: false });
+        }
+      })
+      .catch(() => {});
+  }
 });
