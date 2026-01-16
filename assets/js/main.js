@@ -112,9 +112,9 @@ function highlightTextToHtml(text, terms) {
   const re = new RegExp(`(${unique.map(escapeRegExp).join("|")})`, "gi");
   const parts = text.split(re);
   return parts
-    .map((part) => {
-      if (!part) return "";
-      if (re.test(part)) {
+    .map((part, index) => {
+      // Split by capturing group: odd indices are the matches
+      if (index % 2 === 1) {
         return `<mark class="search-hit">${escapeHtml(part)}</mark>`;
       }
       return escapeHtml(part);
@@ -210,9 +210,13 @@ function initSearch() {
       .map((item) => {
         const rawTitle = item.meta?.title || item.title || "Untitled";
         const url = escapeHtml(addHighlightToUrl(item.url, q));
-        const excerptText = truncate(stripHtml(item.excerpt || ""), 160);
+        // Use Pagefind's native excerpt (which has <mark> tags) if available.
+        // Fallback to truncating content if excerpt is missing.
+        const excerptHtml = item.excerpt
+          ? item.excerpt
+          : highlightTextToHtml(truncate(stripHtml(item.content || ""), 160), terms);
         const titleHtml = highlightTextToHtml(rawTitle, terms);
-        const excerptHtml = highlightTextToHtml(excerptText, terms);
+        
         return `<a href="${url}"><div class="result-title">${titleHtml}</div><p class="result-excerpt">${excerptHtml}</p></a>`;
       })
       .join("");

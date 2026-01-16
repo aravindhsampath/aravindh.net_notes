@@ -5,13 +5,27 @@ Maintain a simple Hugo-based static site that acts like a public “Apple Notes�
 
 ## Primary Workflow
 1. Write/edit notes in Typora.
-2. On save, rebuild locally (Hugo) and update search index (Pagefind).
-3. Preview locally.
-4. When satisfied, run `publish.sh` to rsync the built site to the server.
+2. Run `./scripts/dev.sh` to start the local server and search indexer.
+3. Preview locally (default: `http://localhost:1313`).
+4. When satisfied, run `./deploy.sh` to rsync the built site to the server.
+
+## Project Structure & Scripts
+- `scripts/dev.sh`:
+  - Optimizes images.
+  - Builds site and indexes search (Pagefind).
+  - Starts Hugo watcher and a Python HTTP server (serving `public/`).
+  - Uses `fswatch` (if available) to update Pagefind index on HTML changes.
+- `scripts/build.sh`:
+  - Optimizes images.
+  - Builds production site (minified).
+  - Generates Pagefind index.
+- `deploy.sh`:
+  - Runs `scripts/build.sh`.
+  - Rsyncs `public/` to the web server.
 
 ## Content Rules (Hugo)
-- Notes live under `content/` (prefer `content/notes/` if/when created).
-- Use Markdown files with Hugo front matter (TOML/YAML/JSON). Prefer consistent front matter across notes.
+- Notes live under `content/` (prefer `content/notes/`).
+- Use Markdown files with Hugo front matter (TOML).
 - Filenames should be URL-friendly (kebab-case) and stable.
 - Keep generated output out of git:
   - `public/` and Hugo `resources/` are build artifacts (ignored).
@@ -19,7 +33,7 @@ Maintain a simple Hugo-based static site that acts like a public “Apple Notes�
 ## Typora Setup Expectations
 - Edit the site’s Markdown files in place (inside this repo).
 - Prefer relative paths for images and links so Hugo can render them correctly.
-- If images are used, store them in a predictable place (e.g. `static/` or page bundles) and keep links relative.
+- If images are used, store them in a predictable place and keep links relative.
 
 ## Images (Simple Notes Folder Workflow)
 If you want to keep notes as flat files under `content/notes/` (no per-note folders), store images under `static/images/` and configure Typora to copy images there.
@@ -40,17 +54,14 @@ To avoid shipping multi‑MB originals to every device, the build workflow gener
 
 ## Local Build + Search Index
 - Hugo builds the site to `public/` (default).
-- Pagefind indexes the built HTML from `public/` and writes its index into the built output (commonly `public/pagefind/`).
-- The intended dev loop is:
-  - run a local watcher (Hugo server and/or a small wrapper script),
-  - then run Pagefind after a successful rebuild.
+- Pagefind indexes the built HTML from `public/` and writes its index into the built output (`public/pagefind/`).
+- The `scripts/dev.sh` script automates this process (Hugo server + Pagefind).
 
 ## Publishing
-- Publishing is manual and explicit via `publish.sh`.
-- `publish.sh` should:
-  - build the site,
-  - run Pagefind,
-  - rsync `public/` to the web server destination.
+- Publishing is manual and explicit via `./deploy.sh`.
+- `deploy.sh` will:
+  - Build the site (via `scripts/build.sh`).
+  - Rsync `public/` to the web server destination defined in the script.
 
 ## What to Optimize For
 - Minimal friction when writing in Typora.
