@@ -240,20 +240,6 @@ html[data-theme="light"] .site-header .inner {
   z-index: 200;
 }
 
-/* Hide brand on very small screens if needed, or stack */
-@media (max-width: 640px) {
-  .site-header { padding: 0 16px; top: 16px; }
-  .site-header .inner {
-    grid-template-columns: auto 1fr auto; /* Stack tight */
-    gap: 12px;
-    padding: 10px 16px;
-  }
-  .brand { font-size: 1.4rem; }
-  .search { width: 100%; max-width: 200px; } /* Shrink search on mobile */
-  .search-input { padding: 0 12px; font-size: 0.9rem; }
-}
-
-
 .search-results a {
   display: block;
   padding: 10px 12px;
@@ -291,6 +277,23 @@ html[data-theme="light"] .site-header .inner {
   width: 20px;
   height: 20px;
   fill: currentColor;
+}
+
+/* Icon Switching for Themes */
+html[data-theme="light"] .icon-dark { display: none !important; }
+html[data-theme="light"] .icon-light { display: block !important; }
+
+html[data-theme="dark"] .icon-light { display: none !important; }
+html[data-theme="dark"] .icon-dark { display: block !important; }
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .icon-light { display: none !important; }
+  html:not([data-theme="light"]) .icon-dark { display: block !important; }
+}
+
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .icon-dark { display: none !important; }
+  html:not([data-theme="dark"]) .icon-light { display: block !important; }
 }
 
 /* --- MAIN CONTENT --- */
@@ -475,4 +478,17 @@ html[data-theme="light"] .site-header .inner {
   .search { width: auto; flex-grow: 1; }
   .intro-title { font-size: 2.2rem; }
   .article-title { font-size: 2.2rem; }
+}
+
+/* Hide brand on very small screens if needed, or stack */
+@media (max-width: 640px) {
+  .site-header { padding: 0 16px; top: 16px; }
+  .site-header .inner {
+    grid-template-columns: auto 1fr auto; /* Stack tight */
+    gap: 12px;
+    padding: 10px 16px;
+  }
+  .brand { font-size: 1.4rem; }
+  .search { width: 100%; max-width: 200px; } /* Shrink search on mobile */
+  .search-input { padding: 0 12px; font-size: 0.9rem; }
 }
