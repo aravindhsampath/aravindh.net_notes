@@ -56,8 +56,9 @@
     gap: 12px;
     padding: 8px 16px;
     border-radius: 999px;
-    background: var(--card-hover);
+    background: var(--bg); /* Use bg instead of card-hover for better contrast */
     border: 1px solid var(--border);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   }
   
   .control-group label {
@@ -70,6 +71,7 @@
   .control-group input[type="range"] {
     width: 100px;
     cursor: pointer;
+    accent-color: var(--fg); /* Native theme aware color */
   }
   
   .control-group span {

@@ -269,7 +269,7 @@ html[data-theme="light"] .site-header .inner {
 }
 
 .icon-button:hover {
-  background: var(--card-hover);
+  background: rgba(125, 125, 125, 0.1); /* Universal hover state */
   color: var(--fg);
 }
 
