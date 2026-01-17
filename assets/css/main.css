@@ -122,27 +122,55 @@ nav, .site-header, .site-footer, .search-input, .tag, .button, .note-date, .pagi
 a { color: var(--link); text-decoration: none; transition: color 0.2s; }
 a:hover { color: var(--link-hover); }
 
-/* --- HEADER --- */
+/* --- HEADER (Floating Dock) --- */
 .site-header {
-  height: var(--header-height);
-  border-bottom: 1px solid var(--border);
-  background: color-mix(in srgb, var(--bg) 85%, transparent);
-  backdrop-filter: blur(12px);
   position: sticky;
-  top: 0;
+  top: 20px; /* Floating off the top */
   z-index: 100;
-  display: flex;
-  align-items: center;
+  height: auto; /* Let content define height + padding */
+  padding: 0 24px;
+  pointer-events: none; /* Let clicks pass through outside the dock */
+  background: transparent;
+  border: none;
+  backdrop-filter: none;
 }
 
 .site-header .inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  pointer-events: auto; /* Re-enable clicks on the dock itself */
   width: 100%;
   max-width: var(--max);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 12px 20px;
+  
+  /* Glassmorphism Dock Look */
+  background: rgba(255, 255, 255, 0.65); /* Light mode translucent */
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 20px; /* Rounded pill/dock shape */
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.02),
+    0 10px 15px -3px rgba(0, 0, 0, 0.04);
+  
+  /* 3-Column Grid for Perfect Centering */
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Dark Mode Dock Overrides */
+@media (prefers-color-scheme: dark) {
+  .site-header .inner {
+    background: rgba(20, 20, 20, 0.65);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+html[data-theme="dark"] .site-header .inner {
+  background: rgba(20, 20, 20, 0.65);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .brand {
@@ -151,53 +179,73 @@ a:hover { color: var(--link-hover); }
   font-size: 1.6rem;
   color: var(--fg);
   letter-spacing: -0.02em;
+  justify-self: start;
+  white-space: nowrap;
 }
 
 .header-actions {
   display: flex;
   align-items: center;
   gap: 16px;
+  justify-self: end;
 }
 
-/* Search */
+/* Search (Centered) */
 .search {
   position: relative;
   width: 320px;
+  justify-self: center;
 }
 
 .search-input {
   width: 100%;
   height: 40px;
   padding: 0 16px;
-  background: var(--card);
+  background: color-mix(in srgb, var(--card) 50%, transparent); /* More transparent input */
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: 12px;
   color: var(--fg);
   font-size: 0.95rem;
   transition: all 0.2s ease;
 }
 
 .search-input:focus {
+  background: var(--bg);
   outline: none;
-  border-color: var(--focus);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--focus) 20%, transparent);
+  border-color: var(--fg); /* High contrast focus */
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--fg) 10%, transparent);
 }
 
 .search-results {
   position: absolute;
   top: calc(100% + 12px);
-  right: 0;
-  width: 100%;
-  min-width: 300px;
+  left: 50%;
+  transform: translateX(-50%); /* Center results dropdown */
+  width: 400px; /* Wider results */
+  max-width: 90vw;
   max-height: 60vh;
   overflow-y: auto;
   background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
   padding: 8px;
   z-index: 200;
 }
+
+/* Hide brand on very small screens if needed, or stack */
+@media (max-width: 640px) {
+  .site-header { padding: 0 16px; top: 16px; }
+  .site-header .inner {
+    grid-template-columns: auto 1fr auto; /* Stack tight */
+    gap: 12px;
+    padding: 10px 16px;
+  }
+  .brand { font-size: 1.4rem; }
+  .search { width: 100%; max-width: 200px; } /* Shrink search on mobile */
+  .search-input { padding: 0 12px; font-size: 0.9rem; }
+}
+
 
 .search-results a {
   display: block;
