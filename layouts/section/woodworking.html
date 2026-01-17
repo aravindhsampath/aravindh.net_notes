@@ -1,0 +1,122 @@
+{{ define "main" }}
+<div class="inner" style="margin-top: 40px; margin-bottom: 80px;">
+  <div class="intro" style="margin-bottom: 40px; padding: 0;">
+    <h1 class="intro-title" style="font-size: 2.5rem;">{{ .Title }}</h1>
+    <p class="intro-text">{{ .Params.description }}</p>
+  </div>
+
+  <div id="woodworking-grid" class="masonry-grid">
+    {{ $images := .Resources.ByType "image" }}
+    {{ range $images }}
+      {{ $thumb := .Resize "600x" }}
+      <div class="masonry-card" data-w="{{ .Width }}" data-h="{{ .Height }}">
+        <img 
+          src="{{ $thumb.RelPermalink }}" 
+          width="{{ .Width }}" 
+          height="{{ .Height }}" 
+          alt="{{ .Name }}" 
+          loading="lazy"
+          style="aspect-ratio: {{ .Width }} / {{ .Height }};"
+        >
+      </div>
+    {{ end }}
+  </div>
+</div>
+
+<style>
+  .masonry-grid {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .masonry-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--card);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.3s;
+    cursor: zoom-in;
+  }
+  
+  .masonry-card:hover {
+    transform: translateY(-4px);
+    z-index: 10;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    border-color: var(--fg);
+  }
+  
+  .masonry-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: opacity 0.3s;
+  }
+</style>
+
+<script>
+(function() {
+  const grid = document.getElementById('woodworking-grid');
+  const cards = Array.from(grid.querySelectorAll('.masonry-card'));
+  
+  function getColCount() {
+    const w = window.innerWidth;
+    if (w < 600) return 2;
+    if (w < 900) return 3;
+    if (w < 1200) return 4;
+    return 5;
+  }
+
+  function layout() {
+    const cols = getColCount();
+    const gap = 16;
+    const gridWidth = grid.clientWidth;
+    const colWidth = (gridWidth - (gap * (cols - 1))) / cols;
+    const colHeights = new Array(cols).fill(0);
+
+    cards.forEach(card => {
+      // Get aspect ratio from data attributes or style
+      const w = parseFloat(card.dataset.w);
+      const h = parseFloat(card.dataset.h);
+      const ratio = h / w;
+      
+      const cardHeight = colWidth * ratio;
+      
+      // Find shortest column
+      let minCol = 0;
+      for (let i = 1; i < cols; i++) {
+        if (colHeights[i] < colHeights[minCol]) minCol = i;
+      }
+
+      const x = minCol * (colWidth + gap);
+      const y = colHeights[minCol];
+
+      card.style.width = colWidth + 'px';
+      card.style.height = cardHeight + 'px'; // Set explicit height to avoid jumping
+      card.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+
+      colHeights[minCol] += cardHeight + gap;
+    });
+
+    grid.style.height = Math.max(...colHeights) + 'px';
+  }
+
+  // Initial layout
+  layout();
+  
+  // Layout on resize
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(layout, 100);
+  });
+
+  // Re-layout after images load (just in case, though sizing is explicit)
+  window.addEventListener('load', layout);
+})();
+</script>
+{{ end }}
