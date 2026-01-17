@@ -32,7 +32,7 @@
                   {{- end -}}
                 {{- end -}}
               </div>
-              {{- $excerpt := .Summary | plainify | htmlUnescape | truncate 240 -}}
+              {{- $excerpt := .Summary | plainify | htmlUnescape | truncate 140 -}}
               {{- if $excerpt -}}
                 <p class="note-excerpt">{{ $excerpt }}</p>
               {{- end -}}
