@@ -172,6 +172,13 @@ html[data-theme="dark"] .site-header .inner {
   border-color: rgba(255, 255, 255, 0.1);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+html[data-theme="light"] .site-header .inner {
+  background: rgba(255, 255, 255, 0.65);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.02),
+    0 10px 15px -3px rgba(0, 0, 0, 0.04);
+}
 
 .brand {
   font-family: var(--font-brand);
