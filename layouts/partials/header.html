@@ -16,8 +16,8 @@
     </div>
 
     <div class="header-actions">
-      <a class="icon-button" href="/notes/woodworking/" aria-label="Woodworking">
-        <img src="/images/carpentry-icon.svg" alt="Woodworking" class="icon" style="width: 22px; height: 22px;">
+      <a class="icon-button" href="{{ "woodworking/" | relURL }}" aria-label="Woodworking">
+        <img src="{{ "images/carpentry-icon.svg" | relURL }}" alt="Woodworking" class="icon" style="width: 22px; height: 22px;">
       </a>
       <a class="icon-button" href="{{ with site.Home.OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" aria-label="RSS Feed">
         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
