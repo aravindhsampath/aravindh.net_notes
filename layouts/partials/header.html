@@ -17,10 +17,7 @@
 
     <div class="header-actions">
       <a class="icon-button" href="{{ "woodworking/" | relURL }}" aria-label="Woodworking">
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 12l-6-6-4 4-1.5-1.5L8 12l-6 6h12l6-6z"/>
-          <path d="M12 12l-1.5 1.5"/>
-        </svg>
+        <img src="{{ "images/wood-chisel.svg" | relURL }}" alt="Woodworking" class="icon" style="width: 22px; height: 22px;">
       </a>
       <a class="icon-button" href="{{ with site.Home.OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" aria-label="RSS Feed">
         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
