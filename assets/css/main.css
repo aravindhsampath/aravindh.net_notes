@@ -277,23 +277,18 @@ html[data-theme="light"] .site-header .inner {
   width: 20px;
   height: 20px;
   fill: currentColor;
+  transition: filter 0.2s;
 }
 
-/* Icon Switching for Themes */
-html[data-theme="light"] .icon-dark { display: none !important; }
-html[data-theme="light"] .icon-light { display: block !important; }
-
-html[data-theme="dark"] .icon-light { display: none !important; }
-html[data-theme="dark"] .icon-dark { display: block !important; }
+/* Invert image icons in dark mode to make them white */
+html[data-theme="dark"] img.icon {
+  filter: invert(1);
+}
 
 @media (prefers-color-scheme: dark) {
-  html:not([data-theme="light"]) .icon-light { display: none !important; }
-  html:not([data-theme="light"]) .icon-dark { display: block !important; }
-}
-
-@media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) .icon-dark { display: none !important; }
-  html:not([data-theme="dark"]) .icon-light { display: block !important; }
+  html:not([data-theme="light"]) img.icon {
+    filter: invert(1);
+  }
 }
 
 /* --- MAIN CONTENT --- */
