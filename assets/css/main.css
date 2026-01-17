@@ -304,6 +304,12 @@ a:hover {
   font-size: clamp(1.8rem, 2.2vw + 1.2rem, 2.6rem);
   letter-spacing: -0.02em;
   margin: 0 0 12px 0;
+  background: linear-gradient(180deg, var(--fg) 20%, var(--muted) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* Fallback */
+  display: inline-block; /* Required for background-clip on some browsers */
 }
 
 .intro-text {
