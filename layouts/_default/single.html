@@ -3,23 +3,17 @@
     <header class="article-header">
       <h1 class="article-title" data-pagefind-meta="title">{{ .Title }}</h1>
       {{- if not .Lastmod.IsZero -}}
-        <time class="article-date muted" datetime="{{ .Lastmod.Format "2006-01-02" }}" data-pagefind-meta="date">
-          {{ .Lastmod.Format "2006-01-02" }}
+        <time class="article-date" datetime="{{ .Lastmod.Format "2006-01-02" }}" data-pagefind-meta="date">
+          {{ .Lastmod.Format "Jan 2, 2006" }}
         </time>
       {{- end -}}
 
       {{- with .Params.tags -}}
         {{- $tags := . -}}
-        <div class="tag-row" data-pagefind-meta="tags">
-          <span class="muted">Tags:</span>
-          <ul class="tag-list">
+        <div class="tag-list" data-pagefind-meta="tags" style="justify-content: center; margin-top: 24px;">
             {{- range $tags -}}
-              {{- $tag := . -}}
-              <li class="tag">
-                <a href="{{ (printf "tags/%s/" (urlize $tag)) | relURL }}">#{{ $tag }}</a>
-              </li>
+              <a class="tag-pill" href="{{ (printf "tags/%s/" (urlize .)) | relURL }}">#{{ . }}</a>
             {{- end -}}
-          </ul>
         </div>
       {{- end -}}
     </header>

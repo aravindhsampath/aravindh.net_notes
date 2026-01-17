@@ -22,20 +22,17 @@
         {{- range $paginator.Pages -}}
           <li class="note-item">
             <a class="note-link" href="{{ .RelPermalink }}">
-              <div class="note-title-row">
-                <span class="note-title">{{ .Title }}</span>
-                <time class="note-date" datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "2006-01-02" }}</time>
-              </div>
-              {{- with .Params.tags -}}
-                <ul class="tag-list tag-list--compact">
+              <span class="note-title">{{ .Title }}</span>
+              <div class="note-meta">
+                <time class="note-date" datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "Jan 2, 2006" }}</time>
+                {{- with .Params.tags -}}
+                  <span>·</span>
                   {{- range . -}}
-                    <li class="tag">
-                      <span class="tag-pill">#{{ . }}</span>
-                    </li>
+                    <span class="tag-pill">#{{ . }}</span>
                   {{- end -}}
-                </ul>
-              {{- end -}}
-              {{- $excerpt := .Summary | plainify | htmlUnescape | truncate 220 -}}
+                {{- end -}}
+              </div>
+              {{- $excerpt := .Summary | plainify | htmlUnescape | truncate 240 -}}
               {{- if $excerpt -}}
                 <p class="note-excerpt">{{ $excerpt }}</p>
               {{- end -}}
