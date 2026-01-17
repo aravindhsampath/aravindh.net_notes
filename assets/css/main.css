@@ -1,10 +1,28 @@
-/* Hybrid: Main Header + Editorial Typography */
+/* Hybrid: Main Header + Editorial Typography + Local Playfair */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+/* Local Playfair Display */
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('../fonts/playfair-display/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('../fonts/playfair-display/PlayfairDisplay-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
 
 :root {
   /* Font Stacks */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-serif: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-brand: 'Playfair Display', serif;
   --font-mono: ui-monospace, SFMono-Regular, monospace;
 
   /* Layout */
@@ -19,12 +37,12 @@
   --muted: #595959;
   --border: #e5e5e5;
   --card: #ffffff;
-  --card-hover: #fafafa; /* Kept for search results */
+  --card-hover: #fafafa;
   --focus: #000000;
   --link: #1a1a1a;
   --link-hover: #595959;
   
-  /* Gradient for Hero (from Main) */
+  /* Gradient for Hero */
   --gradient-start: #1a1a1a;
   --gradient-end: #595959;
 }
@@ -74,10 +92,22 @@ html[data-theme="dark"] {
 
 * { box-sizing: border-box; }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 body {
   margin: 0;
   font-family: var(--font-serif);
-  font-size: 1.125rem; /* 18px base */
+  font-size: 1.125rem;
   line-height: 1.7;
   background: var(--bg);
   color: var(--fg);
@@ -92,7 +122,7 @@ nav, .site-header, .site-footer, .search-input, .tag, .button, .note-date, .pagi
 a { color: var(--link); text-decoration: none; transition: color 0.2s; }
 a:hover { color: var(--link-hover); }
 
-/* --- HEADER (Preserved from Main) --- */
+/* --- HEADER --- */
 .site-header {
   height: var(--header-height);
   border-bottom: 1px solid var(--border);
@@ -116,8 +146,9 @@ a:hover { color: var(--link-hover); }
 }
 
 .brand {
+  font-family: var(--font-brand);
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.6rem;
   color: var(--fg);
   letter-spacing: -0.02em;
 }
@@ -128,7 +159,7 @@ a:hover { color: var(--link-hover); }
   gap: 16px;
 }
 
-/* Search (Refined from Main) */
+/* Search */
 .search {
   position: relative;
   width: 320px;
@@ -138,7 +169,7 @@ a:hover { color: var(--link-hover); }
   width: 100%;
   height: 40px;
   padding: 0 16px;
-  background: var(--card); /* Or transparent if preferred */
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   color: var(--fg);
@@ -189,7 +220,7 @@ a:hover { color: var(--link-hover); }
   width: 40px;
   height: 40px;
   border-radius: var(--radius);
-  border: 1px solid transparent; /* Cleaner look */
+  border: 1px solid transparent;
   background: transparent;
   color: var(--muted);
   cursor: pointer;
@@ -207,7 +238,7 @@ a:hover { color: var(--link-hover); }
   fill: currentColor;
 }
 
-/* --- MAIN CONTENT (Editorial Style) --- */
+/* --- MAIN CONTENT --- */
 
 .container, .inner {
   max-width: var(--max);
@@ -215,16 +246,15 @@ a:hover { color: var(--link-hover); }
   padding: 0 24px;
 }
 
-/* Intro & Gradient Title */
+/* Intro */
 .intro { text-align: center; padding: 80px 0 60px; }
 
 .intro-title {
   font-family: var(--font-serif);
   font-size: 3rem;
-  font-weight: 500; /* Lighter weight for serif */
+  font-weight: 500;
   margin-bottom: 16px;
   letter-spacing: -0.03em;
-  /* Gradient from Main */
   background: linear-gradient(180deg, var(--gradient-start) 20%, var(--gradient-end) 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -241,7 +271,7 @@ a:hover { color: var(--link-hover); }
   margin: 0 auto;
 }
 
-/* Notes List (Editorial Layout) */
+/* Notes List */
 .section-title {
   font-size: 0.8rem;
   text-transform: uppercase;
@@ -337,7 +367,7 @@ a:hover { color: var(--link-hover); }
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 1.4rem;
-  border-left: 3px solid var(--fg); /* Minimal solid line */
+  border-left: 3px solid var(--fg);
   padding-left: 1.5em;
   margin: 3em 0;
   color: var(--muted);
