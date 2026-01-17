@@ -32,12 +32,12 @@
 
   /* Colors - Editorial Palette */
   color-scheme: light dark;
-  --bg: #ffffff;
+  --bg: #fdfbf7; /* Warm Paper White */
   --fg: #1a1a1a;
   --muted: #595959;
-  --border: #e5e5e5;
+  --border: #e8e6e1; /* Subtle warm border */
   --card: #ffffff;
-  --card-hover: #fafafa;
+  --card-hover: #f5f3ef;
   --focus: #000000;
   --link: #1a1a1a;
   --link-hover: #595959;
@@ -49,10 +49,10 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #111111;
-    --fg: #e0e0e0;
+    --bg: #0a0a0a; /* Rich Matte Black */
+    --fg: #e5e5e5;
     --muted: #888888;
-    --border: #333333;
+    --border: #262626;
     --card: #111111;
     --card-hover: #1a1a1a;
     --focus: #ffffff;
@@ -65,10 +65,10 @@
 }
 
 html[data-theme="light"] {
-  --bg: #ffffff;
+  --bg: #fdfbf7;
   --fg: #1a1a1a;
   --muted: #595959;
-  --border: #e5e5e5;
+  --border: #e8e6e1;
   --card: #ffffff;
   --focus: #000000;
   --link: #1a1a1a;
@@ -78,10 +78,10 @@ html[data-theme="light"] {
 }
 
 html[data-theme="dark"] {
-  --bg: #111111;
-  --fg: #e0e0e0;
+  --bg: #0a0a0a;
+  --fg: #e5e5e5;
   --muted: #888888;
-  --border: #333333;
+  --border: #262626;
   --card: #111111;
   --focus: #ffffff;
   --link: #e0e0e0;
