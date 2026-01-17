@@ -247,11 +247,13 @@ html[data-theme="light"] .site-header .inner {
   color: var(--fg);
   font-size: 0.95rem;
   font-family: var(--font-sans);
+  transition: background 0.2s;
 }
 
 .search-results a:hover {
-  background: var(--card-hover);
+  background: rgba(125, 125, 125, 0.1);
   text-decoration: none;
+  color: var(--fg);
 }
 
 .icon-button {
