@@ -95,17 +95,24 @@
     border-radius: var(--radius);
     border: 1px solid var(--border);
     overflow: hidden;
-    /* Removed transform transition to prevent layout flicker */
-    transition: box-shadow 0.3s, border-color 0.2s;
+    /* NO transform transition to prevent Safari flicker during layout updates */
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
     cursor: zoom-in;
     display: block;
-    /* Hardware acceleration */
+    /* Promote to own layer to reduce repaints */
     will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
   
   .masonry-card:hover {
-    /* Use !important to override inline styles if necessary, but better to just add scale */
-    transform: translateY(-4px) !important; 
+    /* Use scale instead of translate to avoid conflict with layout positioning? 
+       No, translate is fine if we are hovering. 
+       But since we removed transition on transform, the hover lift will be instant (snap).
+       To get smooth hover lift WITHOUT layout flicker:
+       We need a child element wrapper for the lift, or accept the snap.
+       Let's try sticking to simple border/shadow highlight for now to be safe.
+    */
     z-index: 10;
     box-shadow: 0 12px 30px rgba(0,0,0,0.15);
     border-color: var(--fg);
