@@ -1,15 +1,35 @@
 {{ define "main" }}
+<link rel="stylesheet" href="https://unpkg.com/photoswipe@5.4.3/dist/photoswipe.css">
+
 <div class="inner" style="margin-top: 40px; margin-bottom: 80px;">
-  <div class="intro" style="margin-bottom: 40px; padding: 0;">
+  <div class="intro" style="margin-bottom: 40px; padding: 0; position: relative;">
     <h1 class="intro-title" style="font-size: 2.5rem;">{{ .Title }}</h1>
     <p class="intro-text">{{ .Params.description }}</p>
+    
+    <!-- Controls -->
+    <div class="controls-bar">
+      <div class="control-group">
+        <label for="colSlider">Columns</label>
+        <input id="colSlider" type="range" min="1" max="8" step="1" value="4">
+        <span id="colValue">4</span>
+      </div>
+    </div>
   </div>
 
-  <div id="woodworking-grid" class="masonry-grid">
+  <div id="woodworking-grid" class="masonry-grid pswp-gallery" id="my-gallery">
     {{ $images := .Resources.ByType "image" }}
     {{ range $images }}
       {{ $thumb := .Resize "600x" }}
-      <div class="masonry-card" data-w="{{ .Width }}" data-h="{{ .Height }}">
+      {{ $full := . }}
+      <a 
+        href="{{ $full.RelPermalink }}" 
+        class="masonry-card" 
+        data-pswp-width="{{ $full.Width }}" 
+        data-pswp-height="{{ $full.Height }}" 
+        target="_blank"
+        data-w="{{ .Width }}" 
+        data-h="{{ .Height }}"
+      >
         <img 
           src="{{ $thumb.RelPermalink }}" 
           width="{{ .Width }}" 
@@ -18,12 +38,48 @@
           loading="lazy"
           style="aspect-ratio: {{ .Width }} / {{ .Height }};"
         >
-      </div>
+      </a>
     {{ end }}
   </div>
 </div>
 
 <style>
+  .controls-bar {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+  }
+  
+  .control-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: var(--card-hover);
+    border: 1px solid var(--border);
+  }
+  
+  .control-group label {
+    font-size: 0.85rem;
+    font-family: var(--font-sans);
+    color: var(--muted);
+    font-weight: 500;
+  }
+  
+  .control-group input[type="range"] {
+    width: 100px;
+    cursor: pointer;
+  }
+  
+  .control-group span {
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    color: var(--fg);
+    width: 12px;
+    text-align: center;
+  }
+
   .masonry-grid {
     position: relative;
     width: 100%;
@@ -39,12 +95,13 @@
     border-radius: var(--radius);
     border: 1px solid var(--border);
     overflow: hidden;
-    transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.3s;
+    transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.3s, border-color 0.2s;
     cursor: zoom-in;
+    display: block; /* Ensure anchor behaves like block */
   }
   
   .masonry-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-4px) !important; /* Force override inline transform for hover */
     z-index: 10;
     box-shadow: 0 12px 30px rgba(0,0,0,0.15);
     border-color: var(--fg);
@@ -58,12 +115,22 @@
   }
 </style>
 
-<script>
+<script type="module">
+import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5.4.3/dist/photoswipe-lightbox.esm.js';
+
+// --- Masonry Logic ---
 (function() {
   const grid = document.getElementById('woodworking-grid');
   const cards = Array.from(grid.querySelectorAll('.masonry-card'));
+  const slider = document.getElementById('colSlider');
+  const colVal = document.getElementById('colValue');
   
+  // State
+  let manualCols = null;
+
   function getColCount() {
+    if (manualCols) return manualCols;
+    
     const w = window.innerWidth;
     if (w < 600) return 2;
     if (w < 900) return 3;
@@ -73,20 +140,24 @@
 
   function layout() {
     const cols = getColCount();
+    
+    // Update UI if not manual override (or init)
+    if (!manualCols) {
+        slider.value = cols;
+        colVal.textContent = cols;
+    }
+
     const gap = 16;
     const gridWidth = grid.clientWidth;
     const colWidth = (gridWidth - (gap * (cols - 1))) / cols;
     const colHeights = new Array(cols).fill(0);
 
     cards.forEach(card => {
-      // Get aspect ratio from data attributes or style
       const w = parseFloat(card.dataset.w);
       const h = parseFloat(card.dataset.h);
       const ratio = h / w;
-      
       const cardHeight = colWidth * ratio;
       
-      // Find shortest column
       let minCol = 0;
       for (let i = 1; i < cols; i++) {
         if (colHeights[i] < colHeights[minCol]) minCol = i;
@@ -96,7 +167,9 @@
       const y = colHeights[minCol];
 
       card.style.width = colWidth + 'px';
-      card.style.height = cardHeight + 'px'; // Set explicit height to avoid jumping
+      card.style.height = cardHeight + 'px';
+      // Store transform in variable so we can compose with hover if needed, 
+      // though CSS transition handles the lift nicely.
       card.style.transform = `translate3d(${x}px, ${y}px, 0)`;
 
       colHeights[minCol] += cardHeight + gap;
@@ -105,18 +178,36 @@
     grid.style.height = Math.max(...colHeights) + 'px';
   }
 
-  // Initial layout
+  // --- Controls ---
+  slider.addEventListener('input', (e) => {
+    manualCols = parseInt(e.target.value);
+    colVal.textContent = manualCols;
+    layout();
+  });
+
+  // --- Init ---
+  // Initial calculation based on screen size
+  manualCols = null; 
   layout();
   
-  // Layout on resize
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(layout, 100);
+    resizeTimer = setTimeout(() => {
+        // Reset manual on massive resize? No, keep user pref if set.
+        // Actually, let's keep user pref only if valid? 
+        // Simple: Just re-layout.
+        layout();
+    }, 100);
   });
-
-  // Re-layout after images load (just in case, though sizing is explicit)
-  window.addEventListener('load', layout);
 })();
+
+// --- PhotoSwipe Init ---
+const lightbox = new PhotoSwipeLightbox({
+  gallery: '#woodworking-grid',
+  children: 'a',
+  pswpModule: () => import('https://unpkg.com/photoswipe@5.4.3/dist/photoswipe.esm.js')
+});
+lightbox.init();
 </script>
 {{ end }}
