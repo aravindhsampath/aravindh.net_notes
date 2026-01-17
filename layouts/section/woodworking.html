@@ -5,15 +5,6 @@
   <div class="intro" style="margin-bottom: 40px; padding: 0; position: relative;">
     <h1 class="intro-title" style="font-size: 2.5rem;">{{ .Title }}</h1>
     <p class="intro-text">{{ .Params.description }}</p>
-    
-    <!-- Controls -->
-    <div class="controls-bar">
-      <div class="control-group">
-        <label for="colSlider">Columns</label>
-        <input id="colSlider" type="range" min="1" max="8" step="1" value="4">
-        <span id="colValue">4</span>
-      </div>
-    </div>
   </div>
 
   <div id="woodworking-grid" class="masonry-grid pswp-gallery" id="my-gallery">
@@ -44,44 +35,6 @@
 </div>
 
 <style>
-  .controls-bar {
-    display: flex;
-    justify-content: center;
-    margin-top: 24px;
-  }
-  
-  .control-group {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 8px 16px;
-    border-radius: 999px;
-    background: var(--bg); /* Use bg instead of card-hover for better contrast */
-    border: 1px solid var(--border);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  }
-  
-  .control-group label {
-    font-size: 0.85rem;
-    font-family: var(--font-sans);
-    color: var(--muted);
-    font-weight: 500;
-  }
-  
-  .control-group input[type="range"] {
-    width: 100px;
-    cursor: pointer;
-    accent-color: var(--fg); /* Native theme aware color */
-  }
-  
-  .control-group span {
-    font-size: 0.85rem;
-    font-family: var(--font-mono);
-    color: var(--fg);
-    width: 12px;
-    text-align: center;
-  }
-
   .masonry-grid {
     position: relative;
     width: 100%;
@@ -108,13 +61,6 @@
   }
   
   .masonry-card:hover {
-    /* Use scale instead of translate to avoid conflict with layout positioning? 
-       No, translate is fine if we are hovering. 
-       But since we removed transition on transform, the hover lift will be instant (snap).
-       To get smooth hover lift WITHOUT layout flicker:
-       We need a child element wrapper for the lift, or accept the snap.
-       Let's try sticking to simple border/shadow highlight for now to be safe.
-    */
     z-index: 10;
     box-shadow: 0 12px 30px rgba(0,0,0,0.15);
     border-color: var(--fg);
@@ -135,31 +81,18 @@ import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5.4.3/dist/photoswi
 (function() {
   const grid = document.getElementById('woodworking-grid');
   const cards = Array.from(grid.querySelectorAll('.masonry-card'));
-  const slider = document.getElementById('colSlider');
-  const colVal = document.getElementById('colValue');
   
-  // State
-  let manualCols = null;
-
   function getColCount() {
-    if (manualCols) return manualCols;
-    
     const w = window.innerWidth;
-    if (w < 600) return 2;
-    if (w < 900) return 3;
-    if (w < 1200) return 4;
-    return 5;
+    if (w < 600) return 2; // Mobile
+    if (w < 900) return 3; // Tablet Portrait
+    if (w < 1200) return 4; // Tablet Landscape
+    if (w < 1600) return 5; // Small/Medium Desktop
+    return 6; // Large Desktop
   }
 
   function layout() {
     const cols = getColCount();
-    
-    // Update UI if not manual override (or init)
-    if (!manualCols) {
-        slider.value = cols;
-        colVal.textContent = cols;
-    }
-
     const gap = 16;
     const gridWidth = grid.clientWidth;
     const colWidth = (gridWidth - (gap * (cols - 1))) / cols;
@@ -181,8 +114,6 @@ import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5.4.3/dist/photoswi
 
       card.style.width = colWidth + 'px';
       card.style.height = cardHeight + 'px';
-      // Store transform in variable so we can compose with hover if needed, 
-      // though CSS transition handles the lift nicely.
       card.style.transform = `translate3d(${x}px, ${y}px, 0)`;
 
       colHeights[minCol] += cardHeight + gap;
@@ -191,27 +122,13 @@ import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5.4.3/dist/photoswi
     grid.style.height = Math.max(...colHeights) + 'px';
   }
 
-  // --- Controls ---
-  slider.addEventListener('input', (e) => {
-    manualCols = parseInt(e.target.value);
-    colVal.textContent = manualCols;
-    layout();
-  });
-
   // --- Init ---
-  // Initial calculation based on screen size
-  manualCols = null; 
   layout();
   
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-        // Reset manual on massive resize? No, keep user pref if set.
-        // Actually, let's keep user pref only if valid? 
-        // Simple: Just re-layout.
-        layout();
-    }, 100);
+    resizeTimer = setTimeout(layout, 100);
   });
 })();
 
