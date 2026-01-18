@@ -70,6 +70,7 @@ html[data-theme="light"] {
   --muted: #595959;
   --border: #e8e6e1;
   --card: #ffffff;
+  --card-hover: #f5f3ef;
   --focus: #000000;
   --link: #1a1a1a;
   --link-hover: #595959;
@@ -254,6 +255,12 @@ html[data-theme="light"] .site-header .inner {
   background: rgba(125, 125, 125, 0.1);
   text-decoration: none;
   color: var(--fg);
+}
+
+.icon-button.gallery-link {
+  width: auto;
+  padding: 0 16px;
+  font-weight: 500;
 }
 
 .icon-button {

@@ -22,9 +22,8 @@
     </button>
 
     <div class="header-actions">
-      <a class="icon-button" href="{{ "woodworking/" | relURL }}" aria-label="Woodworking">
-        <img src="{{ "images/wood-chisel.svg" | relURL }}" alt="Woodworking" class="icon" style="width: 22px; height: 22px;">
-        <span class="menu-label" hidden>Wood</span>
+      <a class="icon-button gallery-link" href="{{ "woodworking/" | relURL }}" aria-label="Gallery">
+        Gallery
       </a>
       <a class="icon-button" href="{{ with site.Home.OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" aria-label="RSS Feed">
         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
