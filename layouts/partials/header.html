@@ -15,9 +15,16 @@
       <div id="search-results" class="search-results" hidden></div>
     </div>
 
+    <button class="hamburger" aria-label="Menu" aria-expanded="false" hidden>
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="currentColor" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+      </svg>
+    </button>
+
     <div class="header-actions">
       <a class="icon-button" href="{{ "woodworking/" | relURL }}" aria-label="Woodworking">
         <img src="{{ "images/wood-chisel.svg" | relURL }}" alt="Woodworking" class="icon" style="width: 22px; height: 22px;">
+        <span class="menu-label" hidden>Wood</span>
       </a>
       <a class="icon-button" href="{{ with site.Home.OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" aria-label="RSS Feed">
         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">

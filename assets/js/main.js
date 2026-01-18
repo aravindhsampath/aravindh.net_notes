@@ -241,9 +241,30 @@ function initSearch() {
   });
 }
 
+function initMobileMenu() {
+  const hamburger = document.querySelector(".hamburger");
+  const menu = document.querySelector(".header-actions");
+
+  if (!hamburger || !menu) return;
+
+  hamburger.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isOpen = menu.classList.toggle("is-open");
+    hamburger.setAttribute("aria-expanded", isOpen);
+  });
+
+  document.addEventListener("click", (e) => {
+    if (menu.classList.contains("is-open") && !menu.contains(e.target) && !hamburger.contains(e.target)) {
+      menu.classList.remove("is-open");
+      hamburger.setAttribute("aria-expanded", "false");
+    }
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initThemeToggle();
   initSearch();
+  initMobileMenu();
 
   const params = new URLSearchParams(window.location.search);
   if (params.getAll("pagefind-highlight").length > 0) {

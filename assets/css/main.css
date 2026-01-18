@@ -479,13 +479,108 @@ html[data-theme="dark"] img.icon {
 
 /* Hide brand on very small screens if needed, or stack */
 @media (max-width: 640px) {
+  /* Combined mobile overrides now handled in main responsive block below */
   .site-header { padding: 0 16px; top: 16px; }
+}
+
+/* --- Mobile Menu & Hamburger --- */
+
+.hamburger {
+  display: none; /* Hidden on desktop */
+}
+
+/* Ensure .inner handles absolute positioning of the dropdown */
+.site-header .inner {
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  /* Layout: Logo | Search | Hamburger */
   .site-header .inner {
-    grid-template-columns: auto 1fr auto; /* Stack tight */
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     gap: 12px;
+    align-items: center;
     padding: 10px 16px;
   }
-  .brand { font-size: 1.4rem; }
-  .search { width: 100%; max-width: 200px; } /* Shrink search on mobile */
-  .search-input { padding: 0 12px; font-size: 0.9rem; }
+  
+  /* Show Hamburger */
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .hamburger:hover {
+    background: rgba(125, 125, 125, 0.1);
+    color: var(--fg);
+  }
+  
+  /* Mobile Menu Dropdown (transformed .header-actions) */
+  .header-actions {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 220px;
+    
+    /* Card Style matching theme */
+    background: var(--bg); /* Opaque background for readability */
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    z-index: 1000;
+    
+    /* Layout */
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .header-actions.is-open {
+    display: flex;
+    animation: menuFadeIn 0.2s ease-out;
+  }
+  
+  /* Menu Items */
+  .header-actions .icon-button {
+    width: 100%;
+    height: auto;
+    padding: 10px 12px;
+    justify-content: flex-start;
+    border-radius: 8px;
+    color: var(--fg);
+    font-size: 0.95rem;
+    font-family: var(--font-sans);
+  }
+  
+  .header-actions .icon-button:hover {
+    background: var(--card-hover);
+  }
+  
+  /* Text labels in menu */
+  .menu-label {
+    display: inline-block;
+    margin-left: 12px;
+    font-weight: 500;
+  }
+
+  /* Specific tweak for icon alignment in list */
+  .header-actions .icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+}
+
+@keyframes menuFadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
