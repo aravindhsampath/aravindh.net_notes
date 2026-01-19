@@ -31,6 +31,9 @@ run_pagefind() {
   fi
 }
 
+echo "Cleaning previous build..."
+rm -rf public
+
 echo "Building once (so Pagefind can index)…"
 hugo --minify --buildDrafts
 

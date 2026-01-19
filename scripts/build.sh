@@ -14,6 +14,9 @@ if [[ -n "${BASEURL:-}" ]]; then
   HUGO_ARGS+=(--baseURL "$BASEURL")
 fi
 
+echo "Cleaning previous build..."
+rm -rf public
+
 hugo "${HUGO_ARGS[@]}"
 
 if ! command -v npx >/dev/null 2>&1; then
