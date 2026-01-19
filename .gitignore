@@ -8,3 +8,7 @@ resources/
 # Generated responsive images
 static/images/_gen/
 static/images/gen/
+
+# Rust
+target/
+site-sentinel.log
