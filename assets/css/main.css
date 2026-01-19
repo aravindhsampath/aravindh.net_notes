@@ -444,6 +444,10 @@ html[data-theme="dark"] img.icon {
 .prose img {
   border-radius: var(--radius);
   border: 1px solid var(--border);
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5em auto;
 }
 
 /* Footer */
