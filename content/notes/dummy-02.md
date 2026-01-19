@@ -8,7 +8,7 @@ tags = ["computers", "mac"]
 
 This is a dummy note for testing list views and search. The first paragraph should be long enough to generate a useful excerpt.
 
-Second paragraph: pretend there’s a small observation here that you might revisit later.New test - Blah bloop
+Second paragraph: pretend there’s a small observation here that you might revisit later. Bloop
 
 ## Scratch
 
