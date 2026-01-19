@@ -17,7 +17,7 @@ description = 'Welcome to my digital garden. I write about computers, my wood wo
 ogImage = ''
 
 [frontmatter]
-lastmod = ['lastmod', ':fileModTime', 'date', 'publishDate']
+lastmod = [':fileModTime', 'lastmod', ':git', 'date', 'publishDate']
 
 [taxonomies]
 tag = 'tags'

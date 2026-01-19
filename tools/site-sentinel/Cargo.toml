@@ -1,0 +1,12 @@
+[package]
+name = "site-sentinel"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.100"
+chrono = "0.4.43"
+log = "0.4.29"
+notify-debouncer-mini = "0.7.0"
+simplelog = "0.12.2"
+tokio = { version = "1.49.0", features = ["full"] }
