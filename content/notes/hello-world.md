@@ -19,3 +19,5 @@ I’m using this site as a digital garden: short notes, ideas in progress, and t
 Now the tranlucency should set a little better. at 0.65
 
 Lets try again.
+
+Another test

@@ -254,6 +254,13 @@ fn inject_front_matter(path: &Path) -> Result<()> {
 async fn handle_build_and_deploy(config: Config) {
     info!("Change detected. Starting pipeline...");
 
+    // Step 0: Clean public directory to ensure no ghost files
+    if let Err(e) = fs::remove_dir_all("public") {
+        if e.kind() != std::io::ErrorKind::NotFound {
+            warn!("Failed to clean public directory: {}", e);
+        }
+    }
+
     // Step 1: Hugo Build
     match run_command("hugo", &["--minify"])
         .await {
@@ -263,6 +270,19 @@ async fn handle_build_and_deploy(config: Config) {
         Err(e) => {
             error!("Hugo build failed: {}", e);
             notify("Hugo Build Failed", "Check log for details.");
+            return; // Stop pipeline
+        }
+    }
+
+    // Step 1.5: Pagefind Search Indexing
+    match run_command("npx", &["-y", "pagefind", "--site", "public", "--output-path", "public/pagefind"])
+        .await {
+        Ok(_) => {
+            info!("Pagefind index updated.");
+        }
+        Err(e) => {
+            error!("Pagefind failed: {}", e);
+            notify("Pagefind Failed", "Check log for details.");
             return; // Stop pipeline
         }
     }
