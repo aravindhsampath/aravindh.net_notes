@@ -171,7 +171,14 @@ fn inject_front_matter(path: &Path) -> Result<()> {
     let date = Local::now().format("%Y-%m-%dT%H:%M:%S%:z");
 
     let content = format!(
-        r###"+++\ntitle = "{}"\ndate = {}\ndraft = false\ntags = []\n+++\n\n"###,
+        r#"+++
+title = "{}"
+date = {}
+draft = false
+tags = []
++++
+
+"#,
         title, date
     );
 
