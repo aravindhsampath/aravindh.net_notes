@@ -15,3 +15,4 @@ Lets see how it goes with multiple saves.
 
 And another image - beeeeeep
 
+![nakashima-trestle-dining-table-i-felled-a-tree-and-found-v0-k7a7x1d1h9af1.jpg](../../static/images/nakashima-trestle-dining-table-i-felled-a-tree-and-found-v0-k7a7x1d1h9af1.jpg.webp)

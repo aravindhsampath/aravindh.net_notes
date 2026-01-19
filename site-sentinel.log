@@ -131,3 +131,6 @@
 13:09:57 [INFO] Site Sentinel started. Watching 'content', 'static', and 'site.toml'!
 13:10:15 [INFO] Change detected. Starting pipeline...
 13:10:15 [INFO] Hugo build successful.
+13:10:17 [INFO] Pipeline completed successfully.
+13:10:17 [INFO] Change detected. Starting pipeline...
+13:10:17 [INFO] Hugo build successful.
