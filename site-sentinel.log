@@ -43,3 +43,29 @@
 12:33:20 [INFO] Site Sentinel started. Watching 'content' and 'site.toml'!
 12:33:32 [INFO] Change detected. Starting pipeline...
 12:33:33 [INFO] Hugo build successful.
+12:33:35 [INFO] Pipeline completed successfully.
+12:33:40 [INFO] Detected new empty file: "/Users/aravindhsampathkumar/ai_playground/aravindh.net/content/notes/test-note.md"
+12:33:40 [INFO] Injected front matter into "/Users/aravindhsampathkumar/ai_playground/aravindh.net/content/notes/test-note.md"
+12:33:40 [INFO] Change detected. Starting pipeline...
+12:33:40 [ERROR] Hugo build failed: hugo failed: ERROR error building site: assemble: failed to create page from pageMetaSource /notes/test-note: "/Users/aravindhsampathkumar/ai_playground/aravindh.net/content/notes/test-note.md:1:4": EOF looking for end TOML front matter delimiter
+
+12:33:49 [INFO] Change detected. Starting pipeline...
+12:33:49 [ERROR] Hugo build failed: hugo failed: ERROR error building site: assemble: failed to create page from pageMetaSource /notes/test-note: "/Users/aravindhsampathkumar/ai_playground/aravindh.net/content/notes/test-note.md:1:4": EOF looking for end TOML front matter delimiter
+
+12:33:49 [INFO] Change detected. Starting pipeline...
+12:33:49 [ERROR] Hugo build failed: hugo failed: ERROR error building site: assemble: failed to create page from pageMetaSource /notes/test-note: "/Users/aravindhsampathkumar/ai_playground/aravindh.net/content/notes/test-note.md:1:4": EOF looking for end TOML front matter delimiter
+
+12:38:29 [INFO] Site Sentinel started. Watching 'content' and 'site.toml'!
+12:38:39 [INFO] Change detected. Starting pipeline...
+12:38:39 [ERROR] Hugo build failed: hugo failed: ERROR error building site: assemble: failed to create page from pageMetaSource /notes/test-note: "/Users/aravindhsampathkumar/ai_playground/aravindh.net/content/notes/test-note.md:1:4": EOF looking for end TOML front matter delimiter
+
+12:38:48 [INFO] Detected new empty file: "/Users/aravindhsampathkumar/ai_playground/aravindh.net/content/notes/new_test.md"
+12:38:48 [INFO] Injected front matter into "/Users/aravindhsampathkumar/ai_playground/aravindh.net/content/notes/new_test.md"
+12:38:49 [INFO] Change detected. Starting pipeline...
+12:38:49 [ERROR] Hugo build failed: hugo failed: ERROR error building site: assemble: failed to create page from pageMetaSource /notes/test-note: "/Users/aravindhsampathkumar/ai_playground/aravindh.net/content/notes/test-note.md:1:4": EOF looking for end TOML front matter delimiter
+
+12:38:52 [INFO] Change detected. Starting pipeline...
+12:38:52 [ERROR] Hugo build failed: hugo failed: ERROR error building site: assemble: failed to create page from pageMetaSource /notes/test-note: "/Users/aravindhsampathkumar/ai_playground/aravindh.net/content/notes/test-note.md:1:4": EOF looking for end TOML front matter delimiter
+
+12:39:33 [INFO] Change detected. Starting pipeline...
+12:39:33 [INFO] Hugo build successful.
