@@ -100,3 +100,9 @@
 12:40:45 [INFO] Pipeline completed successfully.
 12:41:00 [INFO] Change detected. Starting pipeline...
 12:41:00 [INFO] Hugo build successful.
+12:41:01 [INFO] Pipeline completed successfully.
+13:01:55 [INFO] Site Sentinel started. Watching 'content' and 'site.toml'!
+13:02:02 [INFO] Detected new empty file: "/Users/aravindhsampathkumar/ai_playground/aravindh.net/content/notes/good_test.md"
+13:02:02 [INFO] Injected front matter into "/Users/aravindhsampathkumar/ai_playground/aravindh.net/content/notes/good_test.md"
+13:02:02 [INFO] Change detected. Starting pipeline...
+13:02:03 [INFO] Hugo build successful.
