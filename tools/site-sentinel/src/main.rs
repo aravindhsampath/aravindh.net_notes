@@ -52,6 +52,12 @@ async fn main() -> Result<()> {
     let content_dir = config.read().unwrap().sentinel.content_dir.clone();
     info!("Site Sentinel started. Watching '{}', '{}', and '{}'!", content_dir, STATIC_DIR, CONFIG_FILE);
 
+    // Initial Scan: Fix permissions for existing images
+    info!("Scanning '{}' for existing images...", STATIC_DIR);
+    if let Err(e) = scan_and_fix_static_images(Path::new(STATIC_DIR)) {
+        error!("Failed to scan static images: {}", e);
+    }
+
     // 3. Setup Watcher
     let (tx, mut rx) = tokio::sync::mpsc::channel(100);
 
@@ -183,6 +189,26 @@ fn is_image_file(path: &Path) -> bool {
             matches!(ext.as_str(), "png" | "jpg" | "jpeg" | "gif" | "webp" | "svg")
         })
         .unwrap_or(false)
+}
+
+fn scan_and_fix_static_images(dir: &Path) -> Result<()> {
+    if !dir.exists() {
+        return Ok(());
+    }
+    
+    for entry in fs::read_dir(dir)? {
+        let entry = entry?;
+        let path = entry.path();
+        
+        if path.is_dir() {
+            scan_and_fix_static_images(&path)?;
+        } else if is_image_file(&path) {
+            if let Err(e) = fix_permissions(&path) {
+                error!("Failed to fix permissions for {:?}: {}", path, e);
+            }
+        }
+    }
+    Ok(())
 }
 
 fn fix_permissions(path: &Path) -> Result<()> {
