@@ -440,7 +440,28 @@ html[data-theme="dark"] img.icon {
   background: var(--card-hover);
   padding: 2px 4px;
   border-radius: 4px;
+  word-break: break-word; /* Ensure single-line code breaks if too long */
 }
+
+.prose pre {
+  background: var(--card-hover);
+  padding: 1rem;
+  border-radius: var(--radius);
+  overflow-x: auto;
+  margin: 1.5em 0;
+  border: 1px solid var(--border);
+  line-height: 1.5;
+}
+
+.prose pre code {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.9rem;
+  word-break: normal;
+  white-space: pre;
+}
+
 .prose img {
   border-radius: var(--radius);
   border: 1px solid var(--border);

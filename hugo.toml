@@ -19,5 +19,10 @@ ogImage = ''
 [frontmatter]
 lastmod = [':fileModTime', 'lastmod', ':git', 'date', 'publishDate']
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [taxonomies]
 tag = 'tags'
