@@ -5,4 +5,4 @@ draft = false
 tags = []
 +++
 
-This is a test.  
+This is a test.  ![Image](../../static/images/Image.png)
