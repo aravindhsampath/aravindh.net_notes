@@ -261,10 +261,30 @@ function initMobileMenu() {
   });
 }
 
+function initScrollToTop() {
+  const btn = document.getElementById("scroll-to-top");
+  if (!btn) return;
+
+  const toggleVisibility = () => {
+    if (window.scrollY > 300) {
+      btn.classList.add("is-visible");
+    } else {
+      btn.classList.remove("is-visible");
+    }
+  };
+
+  window.addEventListener("scroll", debounce(toggleVisibility, 100));
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initThemeToggle();
   initSearch();
   initMobileMenu();
+  initScrollToTop();
 
   const params = new URLSearchParams(window.location.search);
   if (params.getAll("pagefind-highlight").length > 0) {
