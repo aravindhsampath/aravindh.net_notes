@@ -11,3 +11,7 @@ This is a test.  ![Image](../../static/images/Image.png)
 
 Lets see how it goes with multiple saves.
 
+![db7bd411974b37bc481288b8f36f7168](../../static/images/db7bd411974b37bc481288b8f36f7168.jpg)
+
+And another image - beeeeeep
+
