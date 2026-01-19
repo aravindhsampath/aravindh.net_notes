@@ -5,6 +5,7 @@ use notify_debouncer_mini::{new_debouncer, notify::RecursiveMode, DebounceEventR
 use serde::Deserialize;
 use simplelog::*; // Import all from simplelog
 use std::fs::{self, OpenOptions};
+use std::os::unix::fs::PermissionsExt;
 use std::path::Path;
 use std::process::{Command, Stdio};
 use std::sync::{Arc, RwLock};
@@ -36,6 +37,7 @@ const DEBOUNCE_TIME: Duration = Duration::from_millis(500);
 const RETRY_DELAY: Duration = Duration::from_secs(5);
 const MAX_RETRIES: u32 = 2;
 const CONFIG_FILE: &str = "site.toml";
+const STATIC_DIR: &str = "static";
 
 #[tokio::main]
 async fn main() -> Result<()> {
@@ -48,7 +50,7 @@ async fn main() -> Result<()> {
     setup_logging(&log_path)?;
 
     let content_dir = config.read().unwrap().sentinel.content_dir.clone();
-    info!("Site Sentinel started. Watching '{}' and '{}'!", content_dir, CONFIG_FILE);
+    info!("Site Sentinel started. Watching '{}', '{}', and '{}'!", content_dir, STATIC_DIR, CONFIG_FILE);
 
     // 3. Setup Watcher
     let (tx, mut rx) = tokio::sync::mpsc::channel(100);
@@ -61,6 +63,11 @@ async fn main() -> Result<()> {
     debouncer
         .watcher()
         .watch(Path::new(&content_dir), RecursiveMode::Recursive)?;
+
+    // Watch Static Dir (for images)
+    debouncer
+        .watcher()
+        .watch(Path::new(STATIC_DIR), RecursiveMode::Recursive)?;
     
     // Watch Config File
     debouncer
@@ -106,6 +113,14 @@ async fn main() -> Result<()> {
                         } else {
                             needs_build = true;
                         }
+                    }
+                    // Handle Image Change (in static/images)
+                    else if is_image_file(&path) {
+                         if let Err(e) = fix_permissions(&path) {
+                             error!("Failed to fix permissions for {:?}: {}", path, e);
+                         }
+                         // Images trigger build/deploy too
+                         needs_build = true;
                     }
                 }
 
@@ -158,6 +173,36 @@ fn is_new_empty_file(path: &Path) -> bool {
         return metadata.len() == 0;
     }
     false
+}
+
+fn is_image_file(path: &Path) -> bool {
+    path.extension()
+        .and_then(|ext| ext.to_str())
+        .map(|ext| {
+            let ext = ext.to_lowercase();
+            matches!(ext.as_str(), "png" | "jpg" | "jpeg" | "gif" | "webp" | "svg")
+        })
+        .unwrap_or(false)
+}
+
+fn fix_permissions(path: &Path) -> Result<()> {
+    // Only attempt if file exists (it might be a deletion event)
+    if !path.exists() {
+        return Ok(());
+    }
+
+    let metadata = fs::metadata(path)?;
+    let current_mode = metadata.permissions().mode();
+    
+    // Check if user has read/write, and group/others have read (0o644)
+    // We mask with 0o777 to ignore file type bits
+    if (current_mode & 0o777) != 0o644 {
+        let mut perms = metadata.permissions();
+        perms.set_mode(0o644);
+        fs::set_permissions(path, perms)?;
+        info!("Fixed permissions for image: {:?}", path);
+    }
+    Ok(())
 }
 
 fn inject_front_matter(path: &Path) -> Result<()> {
