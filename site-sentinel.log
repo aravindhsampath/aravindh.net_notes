@@ -134,3 +134,9 @@
 13:10:17 [INFO] Pipeline completed successfully.
 13:10:17 [INFO] Change detected. Starting pipeline...
 13:10:17 [INFO] Hugo build successful.
+13:10:19 [INFO] Pipeline completed successfully.
+13:13:15 [INFO] Site Sentinel started. Watching 'content', 'static', and 'site.toml'!
+13:13:15 [INFO] Scanning 'static' for existing images...
+13:13:15 [INFO] Fixed permissions for image: "static/images/Image.png"
+13:13:16 [INFO] Change detected. Starting pipeline...
+13:13:16 [INFO] Hugo build successful.
