@@ -630,3 +630,11 @@ html[data-theme="dark"] img.icon {
     height: 44px;
   }
 }
+
+/* --- Medium Zoom Overrides --- */
+.medium-zoom-overlay {
+  z-index: 1000 !important; /* Above sticky header (100) and search (200) */
+}
+.medium-zoom-image--opened {
+  z-index: 1001 !important;
+}

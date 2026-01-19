@@ -19,6 +19,9 @@
     <meta name="pagefind-script" content="{{ "pagefind/pagefind.js" | relURL }}" />
     <meta name="pagefind-highlight-script" content="{{ "pagefind/pagefind-highlight.js" | relURL }}" />
 
+    {{- $zoom := resources.Get "js/libs/medium-zoom.min.js" | fingerprint -}}
+    <script src="{{ $zoom.RelPermalink }}" integrity="{{ $zoom.Data.Integrity }}" defer></script>
+
     {{- $js := resources.Get "js/main.js" | minify | fingerprint -}}
     <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
   </head>

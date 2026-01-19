@@ -280,11 +280,43 @@ function initScrollToTop() {
   });
 }
 
+function initMediumZoom() {
+  if (typeof mediumZoom === 'undefined') return;
+
+  const getOverlayColor = () => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark' || 
+                   (!document.documentElement.hasAttribute('data-theme') && 
+                    window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    // Matches CSS var(--bg) approx
+    return isDark ? 'rgba(10, 10, 10, 0.95)' : 'rgba(253, 251, 247, 0.95)'; 
+  };
+
+  const zoom = mediumZoom('.prose img', {
+    margin: 24,
+    background: getOverlayColor(),
+    scrollOffset: 0,
+  });
+
+  // Update background on theme toggle
+  const observer = new MutationObserver(() => {
+    zoom.update({ background: getOverlayColor() });
+  });
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  
+  // Also listen for system preference changes
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+      zoom.update({ background: getOverlayColor() });
+    });
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initThemeToggle();
   initSearch();
   initMobileMenu();
   initScrollToTop();
+  initMediumZoom();
 
   const params = new URLSearchParams(window.location.search);
   if (params.getAll("pagefind-highlight").length > 0) {
