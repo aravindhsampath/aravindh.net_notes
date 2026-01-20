@@ -253,9 +253,14 @@ html[data-theme="light"] .site-header .inner {
 
 .search-input:focus {
   width: 280px;
-  background: rgba(255, 255, 255, 0.4);
+  background: linear-gradient(
+    315deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.3) 40%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
   outline: none;
-  border-color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 /* Dark Mode Adaptation */
@@ -283,11 +288,21 @@ html[data-theme="dark"] .search-input {
 }
 
 html[data-theme="dark"] .search-input:focus {
-    background: rgba(255, 255, 255, 0.15);
+    background: linear-gradient(
+        315deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.05) 40%,
+        rgba(255, 255, 255, 0.15) 100%
+    );
 }
 @media (prefers-color-scheme: dark) {
     html:not([data-theme="light"]) .search-input:focus {
-        background: rgba(255, 255, 255, 0.15);
+        background: linear-gradient(
+            315deg,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(255, 255, 255, 0.05) 40%,
+            rgba(255, 255, 255, 0.15) 100%
+        );
     }
 }
 
