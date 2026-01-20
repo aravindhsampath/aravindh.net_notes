@@ -141,7 +141,7 @@ a:hover { color: var(--link-hover); }
   width: 100%;
   max-width: var(--max);
   margin: 0 auto;
-  padding: 12px 20px;
+  padding: 8px 20px;
   
   /* Glassmorphism Dock Look */
   background: rgba(255, 255, 255, 0.5); /* Light mode translucent */
@@ -225,15 +225,15 @@ html[data-theme="light"] .site-header .inner {
   border-radius: 50px;
   
   /* Sizing */
-  height: 44px;
+  height: 36px;
   width: 100%; /* Mobile: Fill available space in grid */
-  padding: 0 20px;
+  padding: 0 16px;
   margin: 0;
   
   outline: none;
   text-align: center;
   transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease, background 0.5s ease;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-family: var(--font-sans);
   
   /* Tactile Depth: Tighter shadow + Inset rim light for physical "pop" */
@@ -453,12 +453,28 @@ html[data-theme="dark"] .search-results a:hover {
   }
 }
 
+.icon-button.gallery-link {
+  width: auto;
+  padding: 0 16px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.icon-button.gallery-link:hover {
+  color: var(--fg);
+  background: rgba(125, 125, 125, 0.1);
+}
+
 .icon-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: var(--radius);
   border: 1px solid transparent;
   background: transparent;
@@ -731,8 +747,8 @@ html[data-theme="dark"] img.icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border: none;
     background: transparent;
     color: var(--muted);
