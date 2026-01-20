@@ -209,18 +209,22 @@ html[data-theme="light"] .site-header .inner {
 
 .search-input {
   display: block;
-  /* Light Mode: White with 50% opacity + Blur (Apple-esque Frosted Glass) */
-  color: rgb(34, 34, 34);
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  /* Organic Glass: Diagonal gradient with light sheen */
+  color: var(--fg);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   
-  /* Variant Z Specifics: No Shadow + Border */
-  box-shadow: none;
-  border: 1px solid var(--border);
+  /* Glass Edge: A subtle, semi-transparent border gives it "thickness" */
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 50px;
   
-  /* Sizing adapted for header */
+  /* Sizing */
   height: 44px;
   width: 220px;
   padding: 0 20px;
@@ -228,42 +232,62 @@ html[data-theme="light"] .site-header .inner {
   
   outline: none;
   text-align: center;
-  transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s ease, background 0.5s ease, border-color 0.2s;
+  transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease, background 0.5s ease;
   font-size: 0.95rem;
   font-family: var(--font-sans);
+  
+  /* Soft Shadow for organic depth */
+  box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.06);
 }
 
 .search-input:hover {
   width: 250px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.1) 40%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  box-shadow: 0 8px 32px -1px rgba(0, 0, 0, 0.1);
 }
 
 .search-input:focus {
   width: 280px;
-  /* Focus: Slightly more opaque to improve readability while typing */
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.4);
   outline: none;
-  border-color: var(--fg); /* High contrast focus */
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 /* Dark Mode Adaptation */
 html[data-theme="dark"] .search-input {
-  color: #fff;
-  /* Dark Mode: Black with 50% opacity + Blur */
-  background: rgba(0, 0, 0, 0.5);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.02) 40%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 @media (prefers-color-scheme: dark) {
   html:not([data-theme="light"]) .search-input {
-    color: #fff;
-    background: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.02) 40%,
+      rgba(255, 255, 255, 0.08) 100%
+    );
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   }
 }
 
 html[data-theme="dark"] .search-input:focus {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(255, 255, 255, 0.15);
 }
 @media (prefers-color-scheme: dark) {
     html:not([data-theme="light"]) .search-input:focus {
-        background: rgba(0, 0, 0, 0.8);
+        background: rgba(255, 255, 255, 0.15);
     }
 }
 
