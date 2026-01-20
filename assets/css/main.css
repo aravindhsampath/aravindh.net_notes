@@ -381,12 +381,24 @@ html[data-theme="dark"] .search-results {
   color: var(--fg);
 }
 
+@media (min-width: 769px) {
+  .search-results .result-title {
+    font-size: 1rem;
+  }
+}
+
 .search-results .result-excerpt {
   font-family: var(--font-serif);
   font-size: 0.9rem;
   color: var(--muted);
   line-height: 1.4;
   margin: 0;
+}
+
+@media (min-width: 769px) {
+  .search-results .result-excerpt {
+    font-size: 0.85rem;
+  }
 }
 
 .search-results .search-hit {
