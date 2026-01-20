@@ -368,9 +368,41 @@ html[data-theme="dark"] .search-results {
   border-radius: 12px;
   color: var(--fg);
   font-size: 0.95rem;
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
   transition: all 0.2s;
   border: 1px solid transparent;
+}
+
+.search-results .result-title {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+  color: var(--fg);
+}
+
+.search-results .result-excerpt {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.search-results .search-hit {
+  background: color-mix(in srgb, var(--fg), transparent 90%);
+  color: var(--fg);
+  font-weight: 600;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+.search-results .empty {
+  padding: 16px;
+  color: var(--muted);
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  text-align: center;
 }
 
 .search-results a:last-child { margin-bottom: 0; }
