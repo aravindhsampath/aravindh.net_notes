@@ -769,8 +769,11 @@ html[data-theme="dark"] img.icon {
     right: 0;
     width: 220px;
     
-    /* Card Style matching theme */
-    background: var(--bg); /* Opaque background for readability */
+    /* 8% Translucent Glass (92% Opaque) */
+    background: color-mix(in srgb, var(--bg), transparent 8%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    
     border: 1px solid var(--border);
     border-radius: 16px;
     padding: 8px;
