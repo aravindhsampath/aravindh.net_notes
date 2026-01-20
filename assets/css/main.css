@@ -329,14 +329,14 @@ html[data-theme="dark"] .search-input:focus {
   max-height: 60vh;
   overflow-y: auto;
   
-  /* High Opacity Glass: 92% opaque (8% transparency) for maximum readability */
+  /* Nearly Solid Glass: 98% opaque to ensure readability */
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.95) 0%,
-    rgba(255, 255, 255, 0.92) 100%
+    rgba(255, 255, 255, 0.99) 0%,
+    rgba(255, 255, 255, 0.97) 100%
   );
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 20px;
@@ -354,8 +354,8 @@ html[data-theme="dark"] .search-input:focus {
 html[data-theme="dark"] .search-results {
   background: linear-gradient(
     135deg,
-    rgba(25, 25, 25, 0.96) 0%,
-    rgba(20, 20, 20, 0.92) 100%
+    rgba(25, 25, 25, 0.99) 0%,
+    rgba(20, 20, 20, 0.97) 100%
   );
   border-color: rgba(255, 255, 255, 0.08);
   box-shadow: 
