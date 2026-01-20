@@ -203,25 +203,55 @@ html[data-theme="light"] .site-header .inner {
   position: relative;
   width: 320px;
   justify-self: center;
+  display: flex;
+  justify-content: center;
 }
 
 .search-input {
-  width: 100%;
-  height: 40px;
-  padding: 0 16px;
-  background: color-mix(in srgb, var(--card) 50%, transparent); /* More transparent input */
+  display: block;
+  /* Light Mode Colors (Inspiration adapted) */
+  color: rgb(34, 34, 34);
+  background: linear-gradient(142.99deg, rgba(217, 217, 217, 0.63) 15.53%, rgba(243, 243, 243, 0.63) 88.19%);
+  
+  /* Variant Z Specifics: No Shadow + Border */
+  box-shadow: none;
   border: 1px solid var(--border);
-  border-radius: 12px;
-  color: var(--fg);
+  border-radius: 50px;
+  
+  /* Sizing adapted for header */
+  height: 44px;
+  width: 220px;
+  padding: 0 20px;
+  margin: 0;
+  
+  outline: none;
+  text-align: center;
+  transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s ease, background 0.5s ease, border-color 0.2s;
   font-size: 0.95rem;
-  transition: all 0.2s ease;
+  font-family: var(--font-sans);
+}
+
+.search-input:hover {
+  width: 250px;
 }
 
 .search-input:focus {
+  width: 280px;
   background: var(--bg);
   outline: none;
   border-color: var(--fg); /* High contrast focus */
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--fg) 10%, transparent);
+}
+
+/* Dark Mode Adaptation */
+html[data-theme="dark"] .search-input {
+  color: #fff;
+  background: linear-gradient(142.99deg, rgba(60, 60, 60, 0.63) 15.53%, rgba(30, 30, 30, 0.63) 88.19%);
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .search-input {
+    color: #fff;
+    background: linear-gradient(142.99deg, rgba(60, 60, 60, 0.63) 15.53%, rgba(30, 30, 30, 0.63) 88.19%);
+  }
 }
 
 .search-results {
