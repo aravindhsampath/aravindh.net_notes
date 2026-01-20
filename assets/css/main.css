@@ -453,12 +453,6 @@ html[data-theme="dark"] .search-results a:hover {
   }
 }
 
-.icon-button.gallery-link {
-  width: auto;
-  padding: 0 16px;
-  font-weight: 500;
-}
-
 .icon-button {
   display: flex;
   align-items: center;
