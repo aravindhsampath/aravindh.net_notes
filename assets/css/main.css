@@ -68,7 +68,7 @@ html[data-theme="light"] {
   /* Warm Stone Palette: Reduces glare, enables white highlights to pop */
   --bg: #EAE9E6; 
   --fg: #2A2A2A; /* Softer charcoal for better harmony with warm bg */
-  --muted: #666660; /* Warm grey for secondary text */
+  --muted: #4A4A45; /* Darker warm grey for improved reading contrast */
   --border: #DCDbd8; /* Subtle stone border */
   --card: #F7F6F3; /* Lighter surface for content areas */
   --card-hover: #FDFCFB; /* Near-white lift on hover */
