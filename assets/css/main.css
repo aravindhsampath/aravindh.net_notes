@@ -32,8 +32,8 @@
 
   /* Colors - Editorial Palette */
   color-scheme: light dark;
-  --bg: #F2F2F7; /* Premium Light Grey */
-  --fg: #1a1a1a;
+  --bg: #EAE9E6; /* Warm Stone */
+  --fg: #2A2A2A;
   --muted: #595959;
   --border: #e8e6e1; /* Subtle warm border */
   --card: #ffffff;
@@ -65,17 +65,18 @@
 }
 
 html[data-theme="light"] {
-  --bg: #F2F2F7; /* Premium Light Grey (Fey-like) */
-  --fg: #1a1a1a;
-  --muted: #595959;
-  --border: #e8e6e1;
-  --card: #ffffff;
-  --card-hover: #f5f3ef;
+  /* Warm Stone Palette: Reduces glare, enables white highlights to pop */
+  --bg: #EAE9E6; 
+  --fg: #2A2A2A; /* Softer charcoal for better harmony with warm bg */
+  --muted: #666660; /* Warm grey for secondary text */
+  --border: #DCDbd8; /* Subtle stone border */
+  --card: #F7F6F3; /* Lighter surface for content areas */
+  --card-hover: #FDFCFB; /* Near-white lift on hover */
   --focus: #000000;
-  --link: #1a1a1a;
+  --link: #2A2A2A;
   --link-hover: #595959;
-  --gradient-start: #1a1a1a;
-  --gradient-end: #595959;
+  --gradient-start: #2A2A2A;
+  --gradient-end: #666660;
 }
 
 html[data-theme="dark"] {
