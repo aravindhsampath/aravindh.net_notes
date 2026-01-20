@@ -226,7 +226,7 @@ html[data-theme="light"] .site-header .inner {
   
   /* Sizing */
   height: 44px;
-  width: 220px;
+  width: 100%; /* Mobile: Fill available space in grid */
   padding: 0 20px;
   margin: 0;
   
@@ -242,8 +242,20 @@ html[data-theme="light"] .site-header .inner {
     inset 0 1px 2px rgba(255, 255, 255, 0.4); /* Inner Highlight */
 }
 
+/* Desktop: Fixed expanding widths */
+@media (min-width: 769px) {
+  .search-input {
+    width: 220px;
+  }
+  .search-input:hover {
+    width: 250px;
+  }
+  .search-input:focus {
+    width: 280px;
+  }
+}
+
 .search-input:hover {
-  width: 250px;
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.4) 0%,
@@ -257,7 +269,8 @@ html[data-theme="light"] .site-header .inner {
 }
 
 .search-input:focus {
-  width: 280px;
+  /* On mobile, focus stays 100% via cascade unless overridden. 
+     The desktop query above handles desktop focus width. */
   background: linear-gradient(
     315deg,
     rgba(255, 255, 255, 0.6) 0%,
