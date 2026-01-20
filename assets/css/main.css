@@ -329,69 +329,32 @@ html[data-theme="dark"] .search-input:focus {
   max-height: 60vh;
   overflow-y: auto;
   
-  /* 99% Opaque (1% Transparent) - Virtually Solid for Readability */
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.995) 0%,
-    rgba(255, 255, 255, 0.99) 100%
-  );
+  /* Theme-aware background derivation (from ui-search-redesign branch) */
+  /* Derives from site bg, tinted with fg, then set to 99% opacity */
+  background: color-mix(in srgb, color-mix(in srgb, var(--bg), var(--fg) 5%), transparent 1%);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid var(--border);
   border-radius: 20px;
   
   /* Deep Tactile Shadow */
   box-shadow: 
     0 20px 40px -10px rgba(0,0,0,0.15),
-    inset 0 1px 0 rgba(255,255,255,0.6);
+    inset 0 1px 0 rgba(255,255,255,0.1);
     
   padding: 8px;
   z-index: 200;
 }
 
-/* Dark Mode Results */
+/* Dark Mode Shadow Adjustment (Background is handled by color-mix automatically) */
 html[data-theme="dark"] .search-results {
-  background: linear-gradient(
-    135deg,
-    rgba(25, 25, 25, 0.995) 0%,
-    rgba(20, 20, 20, 0.99) 100%
-  );
-  border-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 
-    0 20px 40px -10px rgba(0,0,0,0.5),
-    inset 0 1px 0 rgba(255,255,255,0.05);
-}
-  
-  /* Deep Tactile Shadow */
-  box-shadow: 
-    0 20px 40px -10px rgba(0,0,0,0.15),
-    inset 0 1px 0 rgba(255,255,255,0.6);
-    
-  padding: 8px;
-  z-index: 200;
-}
-
-/* Dark Mode Results */
-html[data-theme="dark"] .search-results {
-  background: linear-gradient(
-    135deg,
-    rgba(25, 25, 25, 0.99) 0%,
-    rgba(20, 20, 20, 0.97) 100%
-  );
-  border-color: rgba(255, 255, 255, 0.08);
   box-shadow: 
     0 20px 40px -10px rgba(0,0,0,0.5),
     inset 0 1px 0 rgba(255,255,255,0.05);
 }
 @media (prefers-color-scheme: dark) {
   html:not([data-theme="light"]) .search-results {
-    background: linear-gradient(
-      135deg,
-      rgba(30, 30, 30, 0.9) 0%,
-      rgba(10, 10, 10, 0.8) 100%
-    );
-    border-color: rgba(255, 255, 255, 0.08);
     box-shadow: 
       0 20px 40px -10px rgba(0,0,0,0.5),
       inset 0 1px 0 rgba(255,255,255,0.05);
