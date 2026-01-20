@@ -209,9 +209,11 @@ html[data-theme="light"] .site-header .inner {
 
 .search-input {
   display: block;
-  /* Light Mode Colors (Inspiration adapted) */
+  /* Light Mode: White with 50% opacity + Blur (Apple-esque Frosted Glass) */
   color: rgb(34, 34, 34);
-  background: linear-gradient(142.99deg, rgba(217, 217, 217, 0.63) 15.53%, rgba(243, 243, 243, 0.63) 88.19%);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   
   /* Variant Z Specifics: No Shadow + Border */
   box-shadow: none;
@@ -237,7 +239,8 @@ html[data-theme="light"] .site-header .inner {
 
 .search-input:focus {
   width: 280px;
-  background: var(--bg);
+  /* Focus: Slightly more opaque to improve readability while typing */
+  background: rgba(255, 255, 255, 0.8);
   outline: none;
   border-color: var(--fg); /* High contrast focus */
 }
@@ -245,13 +248,23 @@ html[data-theme="light"] .site-header .inner {
 /* Dark Mode Adaptation */
 html[data-theme="dark"] .search-input {
   color: #fff;
-  background: linear-gradient(142.99deg, rgba(60, 60, 60, 0.63) 15.53%, rgba(30, 30, 30, 0.63) 88.19%);
+  /* Dark Mode: Black with 50% opacity + Blur */
+  background: rgba(0, 0, 0, 0.5);
 }
 @media (prefers-color-scheme: dark) {
   html:not([data-theme="light"]) .search-input {
     color: #fff;
-    background: linear-gradient(142.99deg, rgba(60, 60, 60, 0.63) 15.53%, rgba(30, 30, 30, 0.63) 88.19%);
+    background: rgba(0, 0, 0, 0.5);
   }
+}
+
+html[data-theme="dark"] .search-input:focus {
+    background: rgba(0, 0, 0, 0.8);
+}
+@media (prefers-color-scheme: dark) {
+    html:not([data-theme="light"]) .search-input:focus {
+        background: rgba(0, 0, 0, 0.8);
+    }
 }
 
 .search-results {
