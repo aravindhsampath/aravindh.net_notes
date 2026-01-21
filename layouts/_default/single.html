@@ -31,11 +31,14 @@
     {{- if len $more -}}
       <aside class="up-next" data-pagefind-ignore>
         <h2 class="section-title">Up next</h2>
-        <ul class="up-next-list">
+        <div class="up-next-grid">
           {{- range $more -}}
-            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+            <a href="{{ .RelPermalink }}" class="up-next-card">
+              <span class="up-next-date">{{ .Lastmod.Format "Jan 2, 2006" }}</span>
+              <h3 class="up-next-title">{{ .Title }}</h3>
+            </a>
           {{- end -}}
-        </ul>
+        </div>
       </aside>
     {{- end -}}
   {{- end -}}
