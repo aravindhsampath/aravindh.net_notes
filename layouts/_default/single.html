@@ -12,7 +12,7 @@
         {{- $tags := . -}}
         <div class="tag-list" data-pagefind-meta="tags" style="justify-content: center; margin-top: 24px;">
             {{- range $tags -}}
-              <a class="tag-pill" href="{{ (printf "tags/%s/" (urlize .)) | relURL }}">#{{ . }}</a>
+              <a class="tag-pill" href="{{ (printf "tags/%s/" (urlize .)) | relURL }}">{{ . }}</a>
             {{- end -}}
         </div>
       {{- end -}}
