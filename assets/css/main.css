@@ -54,6 +54,7 @@
   --fg: #111111;
   --muted: #595959;
   --border: #e8e6e1; /* Subtle warm border */
+  --accent: #B85430; /* Terracotta */
   --card: #ffffff;
   --card-hover: #f5f3ef;
   --focus: #000000;
@@ -71,6 +72,7 @@
     --fg: #e5e5e5;
     --muted: #888888;
     --border: #262626;
+    --accent: #FFA16C; /* Coral Sunset */
     --card: #111111;
     --card-hover: #1a1a1a;
     --focus: #ffffff;
@@ -88,6 +90,7 @@ html[data-theme="light"] {
   --fg: #111111; /* Darker charcoal for better harmony with warm bg */
   --muted: #4A4A45; /* Darker warm grey for improved reading contrast */
   --border: #DCDbd8; /* Subtle stone border */
+  --accent: #B85430;
   --card: #F7F6F3; /* Lighter surface for content areas */
   --card-hover: #FDFCFB; /* Near-white lift on hover */
   --focus: #000000;
@@ -102,6 +105,7 @@ html[data-theme="dark"] {
   --fg: #e5e5e5;
   --muted: #888888;
   --border: #262626;
+  --accent: #FFA16C;
   --card: #111111;
   --focus: #ffffff;
   --link: #e0e0e0;
@@ -305,6 +309,10 @@ html[data-theme="light"] .site-header .inner {
 }
 
 /* Dark Mode Adaptation */
+html[data-theme="light"] .search-input {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
 html[data-theme="dark"] .search-input {
   background: linear-gradient(
     135deg,
@@ -563,7 +571,7 @@ html[data-theme="dark"] img.icon {
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--muted);
+  color: var(--accent);
   font-weight: 600;
   text-align: center;
   margin-bottom: 40px;
@@ -616,6 +624,7 @@ html[data-theme="dark"] img.icon {
   font-size: 1rem;
   color: var(--fg);
   line-height: 1.6;
+  letter-spacing: 0.01em;
   margin: 0;
 }
 
@@ -701,6 +710,7 @@ html[data-theme="dark"] .tag-pill {
   font-size: 1.05rem;
   line-height: 1.8;
   color: var(--fg);
+  letter-spacing: 0.01em;
   max-width: 680px;
   margin: 0 auto;
 }
