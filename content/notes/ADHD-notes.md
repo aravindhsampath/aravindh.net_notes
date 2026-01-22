@@ -6,3 +6,7 @@ tags = []
 
 +++
 
+Everything I have learned about and experienced with ADHD.
+
+
+
