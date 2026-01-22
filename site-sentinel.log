@@ -210,3 +210,7 @@
 21:10:01 [INFO] Change detected. Starting pipeline...
 21:10:02 [INFO] Hugo build successful.
 21:10:02 [INFO] Pagefind index updated.
+21:10:04 [INFO] Pipeline completed successfully.
+21:10:04 [INFO] Change detected. Starting pipeline...
+21:10:05 [INFO] Hugo build successful.
+21:10:05 [INFO] Pagefind index updated.
