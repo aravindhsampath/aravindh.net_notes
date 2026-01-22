@@ -7,17 +7,20 @@ tags = ["meta", "notes"]
 
 This is my first public note.
 
-I’m using this site as a digital garden: short notes, ideas in progress, and things I’m learning as I go.
+I’m using this site as a digital garden: short notes, ideas in progress, and things I’m learning as I go. I obsessed over the design of this website and the workflow that will let me type this note on Typora on my Mac and upon saving the file, a Rust program automagically runs Hugo to build the site, deploys it to my web server running on Hetzner, and brings it to your eyes hot. 
 
-## What you can do next
+Check it out on [Github](https://github.com/aravindhsampath/aravindh.net_notes) if you're curious
 
-- Try the search bar in the header (Pagefind).
-- Toggle light/dark mode using the button in the header.
+It was fun redesigning this site, yet again. 
 
-![IMG_7830](../../static/images/IMG_7830.jpg)
+Pairing up with Gemini-3.0-Pro, I learnt a lot of things along the way:
 
-Now the tranlucency should set a little better. at 0.65
+1. Transparency effects
+2. Box shadow to get a Neumorphic effect
+3. Fonts pre-loading
+4. color palette choice - the website background involves a sane color, a large radial blur and a micro grain texture that is almost invisible to give the effect of a physical mediumm instead of the digital flatness. 
 
-Lets try again.
+All this while keeping with the true spirit of this website - being lean, selfhosting everything including the fonts, biasing towards readability over eye candy. 
 
-Another test
+Until the next urge to redesign.... Cheers! 
+

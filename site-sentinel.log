@@ -156,3 +156,31 @@
 21:05:28 [INFO] Change detected. Starting pipeline...
 21:05:29 [INFO] Hugo build successful.
 21:05:30 [INFO] Pagefind index updated.
+11:45:10 [INFO] Site Sentinel started. Watching 'content', 'static', and 'site.toml'!
+11:45:10 [INFO] Scanning 'static' for existing images...
+11:45:10 [INFO] Fixed permissions for image: "static/images/systat.png"
+11:45:10 [INFO] Fixed permissions for image: "static/images/freebsd_zfs.png"
+11:45:10 [INFO] Fixed permissions for image: "static/images/util_curve.png"
+11:45:10 [INFO] Fixed permissions for image: "static/images/duties.png"
+11:45:10 [INFO] Fixed permissions for image: "static/images/barn.png"
+11:45:10 [INFO] Fixed permissions for image: "static/images/htop_zfs.png"
+11:45:10 [INFO] Fixed permissions for image: "static/images/backup_server.png"
+11:45:10 [INFO] Fixed permissions for image: "static/images/aarhus.png"
+11:45:10 [INFO] Fixed permissions for image: "static/images/disk_rating_perf.png"
+11:45:10 [INFO] Fixed permissions for image: "static/images/thumb-sysadmin.png"
+11:45:10 [INFO] Fixed permissions for image: "static/images/zfs_terminology.png"
+11:45:10 [INFO] Fixed permissions for image: "static/images/fio.png"
+11:45:10 [INFO] Fixed permissions for image: "static/images/tebibyte.png"
+11:45:10 [INFO] Fixed permissions for image: "static/images/thumb-delorean.png"
+11:45:10 [INFO] Fixed permissions for image: "static/images/disk-bandwidth-by-file-size.png"
+11:45:10 [INFO] Fixed permissions for image: "static/images/arch.png"
+11:45:10 [INFO] Fixed permissions for image: "static/images/firefight.jpg"
+11:45:10 [INFO] Fixed permissions for image: "static/images/zpool_iostat.png"
+11:45:10 [INFO] Fixed permissions for image: "static/images/bottleneck.png"
+11:45:10 [INFO] Fixed permissions for image: "static/images/delorean.png"
+11:45:10 [INFO] Fixed permissions for image: "static/images/contention.jpeg"
+11:45:10 [INFO] Fixed permissions for image: "static/images/wires.png"
+11:45:10 [INFO] Fixed permissions for image: "static/images/dodge_bullet.jpg"
+11:45:10 [INFO] Change detected. Starting pipeline...
+11:45:11 [INFO] Hugo build successful.
+11:45:12 [INFO] Pagefind index updated.
