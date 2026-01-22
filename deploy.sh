@@ -8,8 +8,8 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 SSH_KEY="${SSH_KEY:-$HOME/.ssh/id_rsa_aravindh.net}"
 SSH_TARGET="${SSH_TARGET:-root@49.12.190.41}"
-DEST_DIR="${DEST_DIR:-/home/caddy/www/notes/}"
-BASEURL="${BASEURL:-https://aravindh.net/notes/}"
+DEST_DIR="${DEST_DIR:-/home/caddy/www/}"
+BASEURL="${BASEURL:-https://aravindh.net/}"
 
 if [[ ! -f "$SSH_KEY" ]]; then
   echo "SSH key not found: $SSH_KEY" >&2

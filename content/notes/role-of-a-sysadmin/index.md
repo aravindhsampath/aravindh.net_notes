@@ -164,7 +164,7 @@ There is definitely more to architecting a HPC cluster than what I can condense 
     
 -   Web servers are intentionally isolated from being able to access the cluster network as a safety measure. Access to web servers are strictly guarded - separate SSH keys other than the ones being used for the cluster. Access only on a need basis using locally stored SSH keys.
     
--   Primary storage for the cluster are a bunch of custom built ZFS servers (FreeBSD and Linux). Refer to my [other posts](https://aravindh.net/tags/zfs/) for how I built them. 
+-   Primary storage for the cluster are a bunch of custom built ZFS servers (FreeBSD and Linux). Refer to my [other posts](/tags/zfs/) for how I built them. 
     
 -   Storage access is provided via simple NFS v3 - it works great, and can even saturate the network pipes upon demand. 
     
@@ -225,7 +225,7 @@ As a performance engineer, I tend to care a lot more about these and make the be
 
 ![Bottleneck](/images/bottleneck.png)
 
-General purpose devices and services often need tailoring for purpose. Simple to say, but takes a whole lot more than I can condense into this subsection. You can look into how I [analysed one of our ZFS file servers' performance](https://aravindh.net/notes/zfs-performance/) to get an idea about what goes in here.
+General purpose devices and services often need tailoring for purpose. Simple to say, but takes a whole lot more than I can condense into this subsection. You can look into how I [analyzed one of our ZFS file servers' performance](/notes/zfs-performance/) to get an idea about what goes in here.
 
 **Performance troubleshooting**:
 

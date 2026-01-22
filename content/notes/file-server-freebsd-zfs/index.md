@@ -411,7 +411,7 @@ EOF
 This basically tells ZFS to ignore user side performance and get the scrub done. This will impact your user facing performance, but this being a backup server, we can safely play with these toggles. This change above is pre-mature optimization and is often considered evil to do such a thing. But, since availability is not critical in my use-case, I felt okay doing such a thing  `¯\_(ツ)_/¯`
 
 ### Performance
-As stated earlier, performance was not a major goal for this setup. However, we'll be missing out on fun if we didnt see some numbers while the system is pushed harder. I tested the write performance of this server with 0%, 50% & 100% compressible data. I detailed my notes on how I went about setting up and viewing results on a [follow-up post here](https://aravindh.net/post/zfs_performance/).
+As stated earlier, performance was not a major goal for this setup. However, we'll be missing out on fun if we didnt see some numbers while the system is pushed harder. I tested the write performance of this server with 0%, 50% & 100% compressible data. I detailed my notes on how I went about setting up and viewing results on a [follow-up post here](/notes/zfs-performance/).
 
 ### Essential zfs commands
 For quick reference, here are some zfs related commands I run on the server from time to time to check on the status.

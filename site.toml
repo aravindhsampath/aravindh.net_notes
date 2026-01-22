@@ -6,4 +6,4 @@ log_file = "site-sentinel.log"
 # Path relative to $HOME, or absolute
 ssh_key = "~/.ssh/id_rsa_aravindh.net"
 ssh_target = "root@49.12.190.41"
-dest_dir = "/home/caddy/www/notes/"
+dest_dir = "/home/caddy/www/"
