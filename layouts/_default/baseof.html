@@ -13,8 +13,12 @@
     </title>
     {{ partial "head-meta.html" . }}
 
-    {{- $css := resources.Get "css/main.css" | minify | fingerprint -}}
-    <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" />
+    {{- /* Preload Critical Fonts */ -}}
+    <link rel="preload" href="/fonts/lora/Lora-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/geist/Geist-ExtraLight.woff2" as="font" type="font/woff2" crossorigin>
+
+    {{- $css := resources.Get "css/main.css" | minify -}}
+    <style>{{ $css.Content | safeCSS }}</style>
 
     <meta name="pagefind-script" content="{{ "pagefind/pagefind.js" | relURL }}" />
     <meta name="pagefind-highlight-script" content="{{ "pagefind/pagefind-highlight.js" | relURL }}" />

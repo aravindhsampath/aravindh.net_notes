@@ -265,15 +265,23 @@ function initScrollToTop() {
   const btn = document.getElementById("scroll-to-top");
   if (!btn) return;
 
+  let ticking = false;
+
   const toggleVisibility = () => {
     if (window.scrollY > 300) {
       btn.classList.add("is-visible");
     } else {
       btn.classList.remove("is-visible");
     }
+    ticking = false;
   };
 
-  window.addEventListener("scroll", debounce(toggleVisibility, 100));
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(toggleVisibility);
+      ticking = true;
+    }
+  }, { passive: true });
 
   btn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });

@@ -1,66 +1,49 @@
 /* Hybrid: Main Header + Editorial Typography + Local Playfair */
-/* Local Inter (Static) */
-@font-face {
-  font-family: 'Inter';
-  src: url('../fonts/inter/Inter_18pt-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Inter';
-  src: url('../fonts/inter/Inter_18pt-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Inter';
-  src: url('../fonts/inter/Inter_18pt-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* Local Lora (Static) */
 @font-face {
   font-family: 'Lora';
-  src: url('../fonts/lora/Lora-Regular.ttf') format('truetype');
+  src: url('../fonts/lora/Lora-Regular.woff2') format('woff2'),
+       url('../fonts/lora/Lora-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Lora';
-  src: url('../fonts/lora/Lora-Italic.ttf') format('truetype');
+  src: url('../fonts/lora/Lora-Italic.woff2') format('woff2'),
+       url('../fonts/lora/Lora-Italic.ttf') format('truetype');
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: 'Lora';
-  src: url('../fonts/lora/Lora-Medium.ttf') format('truetype');
+  src: url('../fonts/lora/Lora-Medium.woff2') format('woff2'),
+       url('../fonts/lora/Lora-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Lora';
-  src: url('../fonts/lora/Lora-MediumItalic.ttf') format('truetype');
+  src: url('../fonts/lora/Lora-MediumItalic.woff2') format('woff2'),
+       url('../fonts/lora/Lora-MediumItalic.ttf') format('truetype');
   font-weight: 500;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: 'Lora';
-  src: url('../fonts/lora/Lora-SemiBold.ttf') format('truetype');
+  src: url('../fonts/lora/Lora-SemiBold.woff2') format('woff2'),
+       url('../fonts/lora/Lora-SemiBold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Lora';
-  src: url('../fonts/lora/Lora-SemiBoldItalic.ttf') format('truetype');
+  src: url('../fonts/lora/Lora-SemiBoldItalic.woff2') format('woff2'),
+       url('../fonts/lora/Lora-SemiBoldItalic.ttf') format('truetype');
   font-weight: 600;
   font-style: italic;
   font-display: swap;
@@ -69,7 +52,8 @@
 /* Local Geist (Thin & ExtraLight) */
 @font-face {
   font-family: 'Geist';
-  src: url('../fonts/geist/Geist-Thin.ttf') format('truetype');
+  src: url('../fonts/geist/Geist-Thin.woff2') format('woff2'),
+       url('../fonts/geist/Geist-Thin.ttf') format('truetype');
   font-weight: 100;
   font-style: normal;
   font-display: swap;
@@ -77,7 +61,8 @@
 
 @font-face {
   font-family: 'Geist';
-  src: url('../fonts/geist/Geist-ExtraLight.ttf') format('truetype');
+  src: url('../fonts/geist/Geist-ExtraLight.woff2') format('woff2'),
+       url('../fonts/geist/Geist-ExtraLight.ttf') format('truetype');
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -86,28 +71,32 @@
 /* Local Playfair Display (Static) */
 @font-face {
   font-family: 'Playfair Display';
-  src: url('../fonts/playfair-display/PlayfairDisplay-Medium.ttf') format('truetype');
+  src: url('../fonts/playfair-display/PlayfairDisplay-Medium.woff2') format('woff2'),
+       url('../fonts/playfair-display/PlayfairDisplay-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Playfair Display';
-  src: url('../fonts/playfair-display/PlayfairDisplay-MediumItalic.ttf') format('truetype');
+  src: url('../fonts/playfair-display/PlayfairDisplay-MediumItalic.woff2') format('woff2'),
+       url('../fonts/playfair-display/PlayfairDisplay-MediumItalic.ttf') format('truetype');
   font-weight: 500;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: 'Playfair Display';
-  src: url('../fonts/playfair-display/PlayfairDisplay-Bold.ttf') format('truetype');
+  src: url('../fonts/playfair-display/PlayfairDisplay-Bold.woff2') format('woff2'),
+       url('../fonts/playfair-display/PlayfairDisplay-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Playfair Display';
-  src: url('../fonts/playfair-display/PlayfairDisplay-BoldItalic.ttf') format('truetype');
+  src: url('../fonts/playfair-display/PlayfairDisplay-BoldItalic.woff2') format('woff2'),
+       url('../fonts/playfair-display/PlayfairDisplay-BoldItalic.ttf') format('truetype');
   font-weight: 700;
   font-style: italic;
   font-display: swap;
@@ -115,7 +104,7 @@
 
 :root {
   /* Font Stacks */
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-geist: 'Geist', sans-serif;
   --font-serif: 'Lora', Georgia, 'Times New Roman', serif;
   --font-brand: 'Playfair Display', serif;
