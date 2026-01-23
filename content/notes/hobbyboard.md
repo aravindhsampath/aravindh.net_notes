@@ -65,7 +65,7 @@ Hobbyboard was built to make sense of all the collected inspiration without much
 3. **Initialize:** This downloads the local embedding model and sets up the database.
 
    ```bash
-   
+   docker compose run --rm app init
    ```
 
    
