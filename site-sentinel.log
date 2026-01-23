@@ -405,3 +405,7 @@ rsync(9289): error: public/pagefind/index/en_e7bb86b.pf_index: open (2) in /User
 12:30:50 [INFO] Change detected. Starting pipeline...
 12:30:50 [INFO] Hugo build successful.
 12:30:51 [INFO] Pagefind index updated.
+12:30:53 [INFO] Pipeline completed successfully.
+12:39:55 [INFO] Change detected. Starting pipeline...
+12:39:56 [INFO] Hugo build successful.
+12:39:57 [INFO] Pagefind index updated.
