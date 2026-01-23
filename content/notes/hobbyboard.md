@@ -91,18 +91,29 @@ Hobbyboard was built to make sense of all the collected inspiration without much
    ```bash
    docker compose up qdrant -d
    ```
-2. Download the binary 
-3. `./hobbyboard init`
-4. `./hobbyboard serve`
+2. Download the binary - [Releases](https://github.com/aravindhsampath/hobbyboard/releases)
+3. `./hobbyboard setup`
+4. `./hobbyboard init`
+5. `./hobbyboard serve`
 
 ### "I Ain't Running a Binary from GitHub!"
 *Grab your glasses (not the drinking kind).*
 
-1.  Audit the source code (I thank you).
-2.  Start Qdrant.
-3.  `cargo build --release`
-4.  `./target/release/hobbyboard init`
-5.  `./target/release/hobbyboard serve`
+1. Audit the source code (I thank you).
+
+2. Setup Qdrant 
+
+   ```bash
+   docker compose up qdrant -d
+   ```
+
+3. `cargo build --release`
+
+4. `./target/release/hobbyboard setup`
+
+5. `./target/release/hobbyboard init`
+
+6. `./target/release/hobbyboard serve`
 
 ## "Hey, this looks like it was vibe-coded in a few hours!"
 First of all, rude. Second, I am so glad you read this far.
