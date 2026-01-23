@@ -331,6 +331,12 @@ html[data-theme="light"] .site-header .inner {
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
+@media (max-width: 768px) {
+  .brand-logo {
+    height: 18px;
+  }
+}
+
 .brand-logo:hover {
   transform: scale(1.02);
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
