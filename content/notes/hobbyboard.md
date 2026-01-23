@@ -120,7 +120,7 @@ First of all, rude. Second, I am so glad you read this far.
 It took **days**. Yes, Hobbyboard is built with Gemini-3 and a lot of patience. Mostly patience. I take pride in knowing exactly what to ask the LLMs to do, and then verifying that they actually did it correctly (they usually don't).
 
 ## The Little Things (I Hope You Notice)
-1.  **The Dark Mode:** It's not just black (#000000). We have standards.
+1.  **Dark Mode and Light mode:** It's not just black (#000000) and white(#FFFFFF). It is much more. 
 2.  **The Light Mode:** It's not just white (#FFFFFF). My eyes aren't bleeding.
 3.  **The Logo:** It symbolizes a masonry grid. It morphs on hover. Does it serve a function? No. Is it cool? Yes.
 4.  **Translucency:** That top bar blur? Chef's kiss.
