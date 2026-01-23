@@ -123,20 +123,37 @@ It took **days**. Yes, Hobbyboard is built with Gemini-3 and a lot of patience. 
 1. **Dark Mode and Light mode:** It's not just black (#000000) and white(#FFFFFF). It is much more. 
 
    <details>
-     <summary>Click me</summary>
+     <summary>Click me for the details</summary>
 
-     ### Heading
-     1. Foo
-     2. Bar
-        * Baz
-        * Qux
+The visual foundation uses a hybrid approach: a solid base color, a noise texture overlay (for grain), and a radial light effect (exclusive to dark mode).
 
-     ### Some Javascript
-     ```js
-     function logSomething(something) {
-       console.log('Something', something);
-     }
-     ```
+  1. Global Grain Texture (All Modes)
+  A subtle noise filter is applied globally via a fixed pseudo-element to create a "film grain" or paper-like texture.
+   * Implementation: body::before (fixed overlay).
+   * Effect: SVG feTurbulence (fractal noise).
+   * Opacity: 0.03 (3%).
+   * CSS Snippet:
+
+   1     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3'
+     stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+
+  2. Light Mode ("Warm Stone")
+  Designed to reduce glare while maintaining a clean, editorial look.
+   * Base Color (`--bg`): #EAE9E6 (Warm, grayish stone).
+   * Background Image: none (The radial gradient is explicitly removed).
+   * Foreground (`--fg`): #111111 (Charcoal).
+   * Muted Text (`--muted`): #4A4A45 (Warm dark grey).
+   * Borders: #DCDbd8.
+
+  3. Dark Mode ("Deep Obsidian Ink")
+  Features a spotlight effect to add depth to the dark surface.
+   * Base Color (`--bg`): #0D0D0C (Nearly black).
+   * Radial Depth Effect: A subtle top-down spotlight.
+       * radial-gradient(circle at top, rgba(255, 255, 255, 0.03) 0%, transparent 70%)
+   * Foreground (`--fg`): #e5e5e5 (Off-white).
+   * Muted Text (`--muted`): #888888.
+   * Borders: #262626.
+
    </details>
 
 2. **The Light Mode:** It's not just white (#FFFFFF). My eyes aren't bleeding.
