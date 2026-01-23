@@ -2,6 +2,7 @@
   <div class="inner">
     <a class="brand" href="{{ relURL "" }}">
       <img src="{{ "images/logos/logo.svg" | relURL }}" alt="{{ site.Title }}" class="brand-logo">
+      <span>{{ site.Params.headerTitle | default site.Title }}</span>
     </a>
 
     <div class="search">
