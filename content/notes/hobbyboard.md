@@ -54,35 +54,30 @@ Hobbyboard was built to make sense of all the collected inspiration without much
    docker compose up qdrant -d
    ```
 
-   
 2. **Configure:** Run the interactive setup wizard to configure your media path, AI provider, and download models.
 
    ```bash
    docker compose run --rm app setup
    ```
 
-   
 3. **Initialize:** This downloads the local embedding model and sets up the database.
 
    ```bash
    docker compose run --rm app init
    ```
 
-   
 4. **Build:** Place your media in `raw_images/`, then process them:
 
    ```bash
    docker compose run --rm app build
    ```
 
-   
 5. **Launch Hobbyboard:**
 
    ```bash
    docker compose up app -d
    ```
 
-   
 6. Open `http://localhost:9625` in your browser.
 
 ### "I'd Rather Run a Binary"
@@ -156,23 +151,21 @@ The visual foundation uses a hybrid approach: a solid base color, a noise textur
 
    </details>
 
-2. **The Light Mode:** It's not just white (#FFFFFF). My eyes aren't bleeding.
+2. **The Logo:** It symbolizes a masonry grid. It morphs on hover. Does it serve a function? No. Is it cool? Yes.
 
-3. **The Logo:** It symbolizes a masonry grid. It morphs on hover. Does it serve a function? No. Is it cool? Yes.
+3. **Translucency:** That top bar blur? Chef's kiss.
 
-4. **Translucency:** That top bar blur? Chef's kiss.
+4. **Modal UX:** Click outside the image to close. It just works.
 
-5. **Modal UX:** Click outside the image to close. It just works.
+5. **Drag & Drop:** Upload media like it's 2026.
 
-6. **Drag & Drop:** Upload media like it's 2026.
+6. **Native Share Sheet:** Share a board/image using your OS's native tools.
 
-7. **Native Share Sheet:** Share a board/image using your OS's native tools.
+7. **Google Takeout-style Export:** Download a ZIP of your original assets and metadata.
 
-8. **Google Takeout-style Export:** Download a ZIP of your original assets and metadata.
+8. **Logs:** Something broke? Check the web UI logs.
 
-9. **Logs:** Something broke? Check the web UI logs.
-
-10. **The Search Bar:** It expands. It has a gradient. It was "Variant Z" and it was the right choice.
+9. **The Search Bar:** It expands. It has a gradient. It was "Variant Z" and it was the right choice.
 
 ## FAQ
 
