@@ -34,7 +34,15 @@ Hobbyboard was built to make sense of all the collected inspiration without much
 - **Designers:** "I need that specific shade of 'depressed corporate blue'..."
 - **Data Hoarders:** You know who you are.
 
+## What is it made of?
+
+- **Backend:** Rust (Axum, Tokio).
+- **Frontend:** HTML, CSS and vanilla JS
+- **Database:** SQLite (Metadata) + Qdrant (Vectors).
+- **AI:** `fastembed-rs` for local embedding, plus vision capable model - local or accessible via API.
+
 ## Quick Start
+
 *(Choose your fighter)*
 
 ### "I'm a Docker Everything Guy"
