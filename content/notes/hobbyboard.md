@@ -13,7 +13,7 @@ tags = []
 ***Screenshots and "Right-Click > Save As" are a Lifestyle.***
 
 ## Why Hobbyboard?
-I’m a hobbyist woodworker. I got tired of collecting inspiration in Apple Notes, Photos.app, or random folders, only to scroll hopelessly later trying to find "that one image of those nice tapered table legs" I knew I stashed *somewhere*.
+I’m a hobbyist woodworker. I got tired of collecting inspiration in Apple Notes, Photos.app, or random folders, only to scroll hopelessly later trying to find "that one image of those nice tapered table legs" I knew I stashed *somewhere* a while ago.
 
 I realized I wasn't just hoarding files; I was losing them.
 
