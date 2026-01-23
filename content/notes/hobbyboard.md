@@ -48,9 +48,15 @@ Hobbyboard was built to make sense of all the collected inspiration without much
 *(Choose your fighter)*
 
 ### "I'm a Docker Everything Guy"
-1.  Setup Qdrant
-2.  Run the container
-3.  Profit?
+1. Setup Qdrant 
+
+   ```bash
+   docker compose up qdrant -d
+   ```
+
+   
+2. Run the container
+3. Profit?
 
 ### "I'd Rather Run a Binary"
 1.  Setup Qdrant
