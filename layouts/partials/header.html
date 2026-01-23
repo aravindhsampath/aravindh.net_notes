@@ -1,8 +1,7 @@
 <header class="site-header" data-pagefind-ignore>
   <div class="inner">
     <a class="brand" href="{{ relURL "" }}">
-      <img src="{{ "images/logos/logo.svg" | relURL }}" alt="Logo" class="brand-logo" width="40" height="40">
-      <span>{{ site.Params.headerTitle | default site.Title }}</span>
+      <img src="{{ "images/logos/logo.svg" | relURL }}" alt="{{ site.Title }}" class="brand-logo">
     </a>
 
     <div class="search">

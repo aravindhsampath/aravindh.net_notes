@@ -1,27 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" aria-labelledby="logo-title" role="img">
-  <title id="logo-title">Aravindh.net Logo</title>
-  <defs>
-    <style>
-      .accent { fill: #B85430; }
-      .dark { fill: #111111; }
-      @media (prefers-color-scheme: dark) {
-        .accent { fill: #FFA16C; }
-        .dark { fill: #E5E5E5; }
-      }
-    </style>
-  </defs>
-  
-  <g transform="translate(56, 56) scale(0.78)">
-    <!-- Main Body with True Cutout -->
-    <!-- fill-rule="evenodd" allows the second triangle to cut a hole in the first -->
-    <path class="accent" fill-rule="evenodd" 
-          d="M 40 40 L 40 460 L 460 40 Z 
-             M 120 120 L 300 120 L 120 300 Z" />
-    
-    <!-- The "Lip" / T-square edge -->
-    <rect class="dark" x="0" y="20" width="40" height="460" rx="4" />
-    
-    <!-- Stylized pivot point detail -->
-    <circle class="dark" cx="160" cy="160" r="15" />
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 320 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(-10, -55)">
+    <!-- The Icon part -->
+    <g transform="matrix(5.5, 0, 0, 5.5, 5, 70)">
+      <path fill="#455a64" d="M 11.9,9 H 2.1 C 1.9,9 1.8,8.9 1.8,8.7 1.8,8.5 1.9,8.4 2.1,8.4 h 9.8 c 0.2,0 0.3,0.1 0.3,0.3 0,0.2 -0.1,0.3 -0.3,0.3 z m -1.7,2.9 0.6,-0.3 0.5,1.1 -0.6,0.3 z M 6.4,1 H 7.6 V 3.2 H 6.4 Z M 3.3,13 2.7,12.7 3.2,11.6 3.8,11.9 Z" />
+      <g fill="#e91e63" transform="matrix(0.3, 0, 0, 0.3, -0.4, -0.2)">
+        <circle cx="40" cy="29" r="2" />
+        <circle cx="8" cy="29" r="2" />
+      </g>
+      <path fill="#ffa16c" d="M 8.5,5.2 C 8.2,5.5 7.8,5.7 7.4,5.8 L 10.2,12 10.8,11.7 10.9,10.4 Z m -3,0 C 5.8,5.2 6.2,5.5 6.6,5.8 L 3.8,12 3.2,11.7 3.1,10.4 Z" />
+      <path fill="#ffa16c" d="M 7,2.5 C 6,2.5 5.2,3.3 5.2,4.4 5.2,5.4 6,6.2 7,6.2 8,6.2 8.8,5.4 8.8,4.4 8.8,3.3 8,2.5 7,2.5 Z m 0,2.8 C 6.5,5.3 6.1,4.9 6.1,4.4 6.1,3.9 6.5,3.5 7,3.5 7.5,3.5 7.9,3.9 7.9,4.4 7.9,4.9 7.5,5.3 7,5.3 Z M 6.4,7.8 H 7.6 V 9.6 H 6.4 Z" />
+    </g>
+    <!-- The Text part (ravindh) -->
+    <!-- Simplified text positioning -->
+    <text x="85" y="125" style="font-family: serif; font-size: 60px; fill: #ffa16c; font-weight: bold;">ravindh</text>
   </g>
 </svg>
