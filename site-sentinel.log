@@ -421,3 +421,23 @@ rsync(9289): error: public/pagefind/index/en_e7bb86b.pf_index: open (2) in /User
 12:40:33 [INFO] Change detected. Starting pipeline...
 12:40:33 [INFO] Hugo build successful.
 12:40:34 [INFO] Pagefind index updated.
+12:40:35 [WARN] Rsync Deploy failed (attempt 1/3): rsync failed: rsync(11915): error: public/pagefind/pagefind-entry.json: open (2) in /Users/aravindhsampathkumar/ai_playground/aravindh.net: No such file or directory
+rsync(11915): error: public/pagefind/pagefind-highlight.js: open (2) in /Users/aravindhsampathkumar/ai_playground/aravindh.net: No such file or directory
+rsync(11915): error: public/pagefind/pagefind-modular-ui.css: open (2) in /Users/aravindhsampathkumar/ai_playground/aravindh.net: No such file or directory
+rsync(11915): error: public/pagefind/pagefind-modular-ui.js: open (2) in /Users/aravindhsampathkumar/ai_playground/aravindh.net: No such file or directory
+rsync(11915): error: public/pagefind/pagefind-ui.css: open (2) in /Users/aravindhsampathkumar/ai_playground/aravindh.net: No such file or directory
+rsync(11915): error: public/pagefind/pagefind-ui.js: open (2) in /Users/aravindhsampathkumar/ai_playground/aravindh.net: No such file or directory
+rsync(11915): error: public/pagefind/pagefind.en_37cc1049d0.pf_meta: open (2) in /Users/aravindhsampathkumar/ai_playground/aravindh.net: No such file or directory
+rsync(11915): error: public/pagefind/pagefind.js: open (2) in /Users/aravindhsampathkumar/ai_playground/aravindh.net: No such file or directory
+rsync(11915): error: public/pagefind/wasm.en.pagefind: open (2) in /Users/aravindhsampathkumar/ai_playground/aravindh.net: No such file or directory
+rsync(11915): error: public/pagefind/wasm.unknown.pagefind: open (2) in /Users/aravindhsampathkumar/ai_playground/aravindh.net: No such file or directory
+rsync(11915): error: public/pagefind/fragment/en_8acbc5a.pf_fragment: open (2) in /Users/aravindhsampathkumar/ai_playground/aravindh.net: No such file or directory
+rsync(11915): error: public/pagefind/fragment/en_9e30a7a.pf_fragment: open (2) in /Users/aravindhsampathkumar/ai_playground/aravindh.net: No such file or directory
+rsync(11915): error: public/pagefind/fragment/en_cc8f68a.pf_fragment: open (2) in /Users/aravindhsampathkumar/ai_playground/aravindh.net: No such file or directory
+rsync(11915): error: public/pagefind/fragment/en_da3f6e1.pf_fragment: open (2) in /Users/aravindhsampathkumar/ai_playground/aravindh.net: No such file or directory
+rsync(11915): error: public/pagefind/index/en_667e3fc.pf_index: open (2) in /Users/aravindhsampathkumar/ai_playground/aravindh.net: No such file or directory
+
+12:40:41 [INFO] Pipeline completed successfully.
+12:48:15 [INFO] Change detected. Starting pipeline...
+12:48:16 [INFO] Hugo build successful.
+12:48:17 [INFO] Pagefind index updated.
