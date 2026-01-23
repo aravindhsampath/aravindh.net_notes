@@ -312,6 +312,9 @@ html[data-theme="light"] .site-header .inner {
 }
 
 .brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-family: var(--font-brand);
   font-weight: 700;
   font-size: 1.6rem;
@@ -319,6 +322,13 @@ html[data-theme="light"] .site-header .inner {
   letter-spacing: -0.02em;
   justify-self: start;
   white-space: nowrap;
+}
+
+.brand-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  /* Ensure the SVG colors adapt if using currentColor, though our SVG uses classes */
 }
 
 .header-actions {
