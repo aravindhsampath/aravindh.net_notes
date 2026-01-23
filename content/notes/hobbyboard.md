@@ -62,7 +62,8 @@ Hobbyboard was built to make sense of all the collected inspiration without much
    ```
 
    
-3. Profit?
+3. **Initialize:** This downloads the local embedding model and sets up the database.
+4. 
 
 ### "I'd Rather Run a Binary"
 1.  Setup Qdrant
