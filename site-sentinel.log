@@ -395,3 +395,9 @@ rsync(9289): error: public/pagefind/index/en_e7bb86b.pf_index: open (2) in /User
 10:47:59 [INFO] Change detected. Starting pipeline...
 10:47:59 [INFO] Hugo build successful.
 10:48:00 [INFO] Pagefind index updated.
+10:48:02 [WARN] Rsync Deploy failed (attempt 1/3): rsync failed: rsync(9746): warning: public/pagefind: unreadable directory: No such file or directory
+
+10:48:07 [INFO] Pipeline completed successfully.
+12:25:18 [INFO] Change detected. Starting pipeline...
+12:25:19 [INFO] Hugo build successful.
+12:25:20 [INFO] Pagefind index updated.
