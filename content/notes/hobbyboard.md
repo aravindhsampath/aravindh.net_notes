@@ -55,7 +55,13 @@ Hobbyboard was built to make sense of all the collected inspiration without much
    ```
 
    
-2. Run the container
+2. **Configure:** Run the interactive setup wizard to configure your media path, AI provider, and download models.
+
+   ```bash
+   
+   ```
+
+   
 3. Profit?
 
 ### "I'd Rather Run a Binary"
