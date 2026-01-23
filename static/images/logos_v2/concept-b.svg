@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-labelledby="title-b" role="img">
+  <title id="title-b">Aravindh.net Frosted Arch Mark</title>
+  <defs>
+    <linearGradient id="frosted-fade" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:currentColor;stop-opacity:0.05" />
+      <stop offset="100%" style="stop-color:currentColor;stop-opacity:0.4" />
+    </linearGradient>
+  </defs>
+
+  <!-- The Structure: A fine stroke arch -->
+  <path d="M 20,90 L 20,40 A 30,30 0 0 1 80,40 L 80,90" 
+        fill="url(#frosted-fade)" 
+        stroke="currentColor" 
+        stroke-width="2" 
+        stroke-linecap="round" />
+
+  <!-- The "Reflection": A diagonal white/clear slice to suggest glassiness -->
+  <path d="M 25,85 L 25,40 A 25,25 0 0 1 75,40 L 75,50" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-width="0.5" 
+        stroke-opacity="0.5" />
+
+  <!-- The Initial: A simple serif 'A' floating inside -->
+  <text x="50" y="75" 
+        font-family="'Playfair Display', serif" 
+        font-weight="700" 
+        font-size="40" 
+        text-anchor="middle" 
+        fill="currentColor">A</text>
+</svg>

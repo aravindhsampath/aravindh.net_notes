@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" aria-labelledby="title-a" role="img">
+  <title id="title-a">Aravindh.net Editorial Prism Logo</title>
+  <defs>
+    <!-- The "Prism" Gradient: Subtle shift from opaque to transparent -->
+    <linearGradient id="prism-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:currentColor;stop-opacity:0.1" />
+      <stop offset="50%" style="stop-color:currentColor;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:currentColor;stop-opacity:0.05" />
+    </linearGradient>
+  </defs>
+
+  <!-- Group 1: The Monogram "A" (Playfair-ish style) -->
+  <!-- Using a path to mimic a high-contrast serif A -->
+  <g transform="translate(10, 10) scale(0.8)">
+     <!-- Left leg (thin) -->
+     <path d="M 40,100 L 70,10 L 75,10 L 50,100 Z" fill="currentColor" />
+     <!-- Right leg (thick with serif) -->
+     <path d="M 68,10 L 98,100 L 110,100 L 110,105 L 80,105 L 80,100 L 85,100 L 60,25 L 55,40 Z" fill="currentColor" />
+     
+     <!-- The "Glass Shard" Crossbar -->
+     <!-- Instead of a solid black bar, we use a geometric shard with the prism gradient -->
+     <path d="M 20,65 L 120,65 L 110,55 L 30,55 Z" fill="url(#prism-gradient)" stroke="currentColor" stroke-width="0.5" />
+  </g>
+
+  <!-- Group 2: The Wordmark "ARAVINDH" -->
+  <text x="120" y="62" font-family="'Playfair Display', serif" font-weight="700" font-size="48" letter-spacing="0.1em" fill="currentColor">
+    ARAVINDH
+  </text>
+  
+  <!-- Subtext ".NET" in lighter weight -->
+  <text x="390" y="62" font-family="'Geist', sans-serif" font-weight="200" font-size="24" fill="currentColor" opacity="0.6" text-anchor="end">
+    .NET
+  </text>
+</svg>

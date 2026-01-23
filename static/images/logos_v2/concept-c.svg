@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" aria-labelledby="title-c" role="img">
+  <title id="title-c">Aravindh.net Craftsman Seal</title>
+  
+  <!-- Group: The Seal Icon -->
+  <g transform="translate(10, 10)">
+    <!-- Hexagon Shape -->
+    <path d="M 20,0 L 60,0 L 80,35 L 60,70 L 20,70 L 0,35 Z" 
+          fill="none" 
+          stroke="currentColor" 
+          stroke-width="2" />
+          
+    <!-- Inner offset for "double stroke" look -->
+    <path d="M 22,4 L 58,4 L 76,35 L 58,66 L 22,66 L 4,35 Z" 
+          fill="currentColor" 
+          fill-opacity="0.05" />
+          
+    <!-- The Mark -->
+    <text x="40" y="50" 
+          font-family="'Playfair Display', serif" 
+          font-weight="700" 
+          font-size="42" 
+          text-anchor="middle" 
+          fill="currentColor">a</text>
+  </g>
+
+  <!-- Divider Line -->
+  <line x1="100" y1="20" x2="100" y2="80" stroke="currentColor" stroke-width="1" opacity="0.3" />
+
+  <!-- Wordmark -->
+  <text x="120" y="60" 
+        font-family="'Geist', sans-serif" 
+        font-weight="300" 
+        font-size="36" 
+        letter-spacing="0.15em" 
+        fill="currentColor">
+    ARAVINDH
+  </text>
+</svg>
