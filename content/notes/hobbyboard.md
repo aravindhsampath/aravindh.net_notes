@@ -64,10 +64,16 @@ Hobbyboard was built to make sense of all the collected inspiration without much
    
 3. **Initialize:** This downloads the local embedding model and sets up the database.
 4. **Build:** Place your media in `raw_images/`, then process them:
-5. **Launch Hobbyboard:**
 
    ```bash
    
+   ```
+
+   
+5. **Launch Hobbyboard:**
+
+   ```bash
+   docker compose up app -d
    ```
 
    
