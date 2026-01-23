@@ -325,7 +325,7 @@ html[data-theme="light"] .site-header .inner {
 }
 
 .brand-logo {
-  height: 42px;
+  height: 34px;
   width: auto;
   object-fit: contain;
   transition: transform 0.3s ease, filter 0.3s ease;
