@@ -86,10 +86,14 @@ Hobbyboard was built to make sense of all the collected inspiration without much
 6. Open `http://localhost:9625` in your browser.
 
 ### "I'd Rather Run a Binary"
-1.  Setup Qdrant
-2.  Download the binary
-3.  `./hobbyboard init`
-4.  `./hobbyboard serve`
+1. Setup Qdrant 
+
+   ```bash
+   docker compose up qdrant -d
+   ```
+2. Download the binary 
+3. `./hobbyboard init`
+4. `./hobbyboard serve`
 
 ### "I Ain't Running a Binary from GitHub!"
 *Grab your glasses (not the drinking kind).*
