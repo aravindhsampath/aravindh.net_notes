@@ -19,12 +19,15 @@ Hobbyboard was built to make sense of all the collected inspiration without much
 
 ## What does it do?
 
-- **🧠 It Has Eyes:** Uses Vision AI (Ollama, OpenAI, or Gemini) to look at your images so you don't have to tag them. It turns `IMG_4421.JPG` into "Brutalist concrete architecture, overcast sky, 1970s style."
-- **🔍 Hybrid Search:** Combines **Vector Search** (vibes/concepts) with **Full Text Search** (keywords). Search for "moody lighting" or "Helvetica" and get results that make sense.
-- **📝 Notes (New!):** Add your own snarky comments to images. Hobbyboard indexes those too. Auto-saving, because we know you'll forget.
-- **⚡ Rust Backend:** Fast, memory-safe, and morally superior.
-- **🎨 Responsive Masonry Grid:** Because simple grids are for spreadsheets. Customizable density.
-- **📂 Zero-Lock-in:** Your data lives in SQLite and local folders. If you hate Hobbyboard later (you might), you can take your images, tags, notes, and boards elsewhere.
+ **Use AI**: Uses Vision models (Ollama, OpenAI, or Gemini) to caption, tag, and OCR your images. It turns `IMG_4421.JPG` into "Brutalist concrete architecture, overcast sky, 1970s style."
+
+ **Hybrid Search:** Combines **Vector Search** (vibes/concepts) with **Full Text Search** (keywords, OCR, manual tags and notes). Search for "moody lighting" or "Helvetica" and get results that actually match.
+
+ **Manual input:** Accepts that AI is not always great. Add your own tags, snarky comments to images. Hobbyboard indexes those too. Auto-saving.
+
+**Responsive Masonry Grid:** Because it is nice. Customise how dense you want.
+
+**KISS - Keep it standard and simple** Your data lives in SQLite and local folders. If you hate HobbyBoard later, you can take your images, tags, notes, and boards elsewhere.
 
 ## Who is this for?
 - **Woodworkers / Makers:** "I saw a joinery technique once..."
