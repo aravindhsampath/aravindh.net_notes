@@ -330,6 +330,18 @@ html[data-theme="light"] .site-header .inner {
   object-fit: contain;
 }
 
+/* Theme-aware Logo Swapping */
+html[data-theme="dark"] .logo-light { display: none; }
+html[data-theme="light"] .logo-dark { display: none; }
+
+/* Handle cases where data-theme isn't explicitly set (system pref fallback) */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .logo-light { display: none; }
+}
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .logo-dark { display: none; }
+}
+
 .header-actions {
   display: flex;
   align-items: center;
