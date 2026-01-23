@@ -65,7 +65,13 @@ Hobbyboard was built to make sense of all the collected inspiration without much
 3. **Initialize:** This downloads the local embedding model and sets up the database.
 4. **Build:** Place your media in `raw_images/`, then process them:
 5. **Launch Hobbyboard:**
-6. 
+
+   ```bash
+   
+   ```
+
+   
+6. Open `http://localhost:9625` in your browser.
 
 ### "I'd Rather Run a Binary"
 1.  Setup Qdrant
