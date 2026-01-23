@@ -15,13 +15,7 @@ tags = []
 ## Why Hobbyboard?
 I’m a hobbyist woodworker. I got tired of collecting inspiration in Apple Notes, Photos.app, or random folders, only to scroll hopelessly later trying to find "that one image of those nice tapered table legs" I knew I stashed *somewhere* a while ago.
 
-I realized I wasn't just hoarding files; I was losing them.
-
-Hobbyboard was built to solve that. It bridges the gap between collecting inspiration and actually finding it again when you need it.
-
-Existing solutions didn't fit:
-- **Pinterest:** Great for discovery, bad for organizing *my* specific files (and I prefer not to be served ads for spatulas when I'm looking for joinery).
-- **Cloud SaaS:** I didn't want to pay a subscription to access my own files.
+Hobbyboard was built to make sense of all the collected inspiration without much effort and actually finding it again when you need it.
 
 ## What does it do?
 
