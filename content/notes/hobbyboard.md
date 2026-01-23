@@ -49,8 +49,9 @@ Hobbyboard was built to make sense of all the collected inspiration without much
 4.  `./hobbyboard serve`
 
 ### "I Ain't Running a Binary from GitHub!"
-*Grab your reading glasses (not the drinking kind).*
-1.  Audit the source code (I dare you).
+*Grab your glasses (not the drinking kind).*
+
+1.  Audit the source code (I thank you).
 2.  Start Qdrant.
 3.  `cargo build --release`
 4.  `./target/release/hobbyboard init`
