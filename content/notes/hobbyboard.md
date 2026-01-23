@@ -58,7 +58,7 @@ Hobbyboard was built to make sense of all the collected inspiration without much
 2. **Configure:** Run the interactive setup wizard to configure your media path, AI provider, and download models.
 
    ```bash
-   
+   docker compose run --rm app setup
    ```
 
    
