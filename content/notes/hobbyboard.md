@@ -143,8 +143,6 @@ Most knobs you'd want to turn are in `hobbyboard.toml`.
   |                          | `fts_weight`      | 0.0-1.0. Higher = exact keyword matching.                    | `0.3`                    |
   | **[search.fts_weights]** | `manual_tags`     | Multiplier. If *you* typed it, it matters more.              | `2.0`                    |
 
-  
-
 ## "Hey, this looks like it was vibe-coded in a few hours!"
 
 First of all, rude. Second, I am so glad you read this far.
