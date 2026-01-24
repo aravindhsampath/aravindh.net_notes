@@ -153,7 +153,7 @@ The visual foundation uses a hybrid approach: a solid base color, a noise textur
 
 2. **The Logo:** It symbolizes a masonry grid. It morphs on hover. Does it serve a function? No. Is it cool? Yes.
 
-3. **Translucency:** That top bar blur? Chef's kiss.
+3. **Translucency:** That top bar blur? It floats over the board like frosted glass. 
 
 4. **Modal UX:** Click outside the image to close. It just works.
 
