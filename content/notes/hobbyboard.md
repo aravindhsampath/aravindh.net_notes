@@ -45,6 +45,12 @@ Hobbyboard was built to make sense of all the collected inspiration without much
 
 ![screenshot_1](../../static/images/screenshot_1.png)
 
+![screenshot_2](../../static/images/screenshot_2.png)
+
+
+
+
+
 
 
 ## Quick Start
