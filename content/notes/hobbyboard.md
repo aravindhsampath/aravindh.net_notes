@@ -128,6 +128,8 @@ Hobbyboard was built to make sense of all the collected inspiration without much
 
 > What solved my problem well became the defaults. Customise away to make it solve yours.
 
+Most knobs you'd want to turn are in `hobbyboard.toml`.
+
 
 
 ## "Hey, this looks like it was vibe-coded in a few hours!"
