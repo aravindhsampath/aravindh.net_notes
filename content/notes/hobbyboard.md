@@ -139,9 +139,13 @@ Most knobs you'd want to turn are in `hobbyboard.toml`.
   |                          | `embedding_model` | The fast model that converts text to vectors (loaded to memory by Hobbyboard). <br/>• `mxbai-embed-large-v1` (Balanced / Recommended, ~670MB) <br/>• `Alibaba-NLP/gte-large-en-v1.5` (Best Quality, ~1.6GB) <br/>• `nomic-embed-text-v1.5` (Faster, ~500MB) | `"mxbai-embed-large-v1"` |
   | **[server]**             | `host`            | `0.0.0.0` to expose to your LAN.                             | `"0.0.0.0"`              |
   |                          | `port`            | Why 9625? I mashed the numpad.                               | `9625`                   |
-  | **[search]**             | `vector_weight`   | 0.0-1.0. Higher = more "Concept/Vibe" matching.              | `0.7`                    |
-  |                          | `fts_weight`      | 0.0-1.0. Higher = exact keyword matching.                    | `0.3`                    |
-  | **[search.fts_weights]** | `manual_tags`     | Multiplier. If *you* typed it, it matters more.              | `2.0`                    |
+  | **[search]** | `vector_weight` | 0.0-1.0. Higher = more "Concept/Vibe" matching. | `0.7` |
+  | | `fts_weight` | 0.0-1.0. Higher = exact keyword matching. | `0.3` |
+  | **[search.fts_weights]**| `manual_tags` | Multiplier. If *you* typed it, it matters more. | `2.0` |
+  | | `user_notes` | Multiplier. Your snarky comments matter too. | `2.0` |
+  | | `caption` | Multiplier. AI description weight. | `1.0` |
+  | | `auto_tags` | Multiplier. AI tags weight. | `1.0` |
+  | | `ocr` | Multiplier. Text found inside images. | `0.8` |                  |
 
 ## "Hey, this looks like it was vibe-coded in a few hours!"
 
