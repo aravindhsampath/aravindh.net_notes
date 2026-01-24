@@ -41,7 +41,9 @@ Hobbyboard was built to make sense of all the collected inspiration without much
 - **Database:** SQLite (Metadata) + Qdrant (Vectors).
 - **AI:** `fastembed-rs` for local embedding, plus vision capable model - local or accessible via API.
 
-<GIFs go here>
+## What does it look like?
+
+
 
 ## Quick Start
 
