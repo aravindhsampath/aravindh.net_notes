@@ -7,7 +7,7 @@ tags = []
 +++
 
 # Hobbyboard
-> Your local media library, organized by AI, searchable by concept.
+> All the images and videos you collected for inspiration, organized by AI, searchable by concept.
 > *Think of it as a private, self-hosted Pinterest that actually respects your data.*
 
 ***Screenshots and "Right-Click > Save As" are a Lifestyle.***
