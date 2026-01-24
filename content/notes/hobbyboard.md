@@ -43,6 +43,8 @@ Hobbyboard was built to make sense of all the collected inspiration without much
 
 ## What does it look like?
 
+![screenshot_1](../../static/images/screenshot_1.png)
+
 
 
 ## Quick Start
