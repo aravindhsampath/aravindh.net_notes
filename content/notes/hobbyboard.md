@@ -136,7 +136,7 @@ Most knobs you'd want to turn are in `hobbyboard.toml`.
   |                          | `dist_dir`        | Where we dump thumbnails, DBs, and metadata.                 | `"dist"`                 |
   | **[ai]**                 | `provider`        | `ollama` (free/slow), `openai`, or `gemini`.                 | `"ollama"`               |
   |                          | `vision_model`    | The eyes. e.g., `qwen3-vl:8b`, `gemini-3-flash-preview`, `gpt-5-mini`. | `"qwen3-vl:8b"`          |
-  |                          | `embedding_model` | The fast model that converts text to vectors. It is loaded to memory by Hobbyboard.  "mxbai-embed-large-v1" (Balanced / Recommended, ~670MB) "Alibaba-NLP/gte-large-en-v1.5" (Best Quality, ~1.6GB) "nomic-embed-text-v1.5" (Faster, ~500MB) | `"mxbai-embed-large-v1"` |
+  |                          | `embedding_model` | The fast model that converts text to vectors (loaded to memory by Hobbyboard). <br/>• `mxbai-embed-large-v1` (Balanced / Recommended, ~670MB) <br/>• `Alibaba-NLP/gte-large-en-v1.5` (Best Quality, ~1.6GB) <br/>• `nomic-embed-text-v1.5` (Faster, ~500MB) | `"mxbai-embed-large-v1"` |
   | **[server]**             | `host`            | `0.0.0.0` to expose to your LAN.                             | `"0.0.0.0"`              |
   |                          | `port`            | Why 9625? I mashed the numpad.                               | `9625`                   |
   | **[search]**             | `vector_weight`   | 0.0-1.0. Higher = more "Concept/Vibe" matching.              | `0.7`                    |
