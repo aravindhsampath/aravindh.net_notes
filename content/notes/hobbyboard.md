@@ -126,6 +126,8 @@ Hobbyboard was built to make sense of all the collected inspiration without much
 
 ## Configuration
 
+> What solved my problem well became the defaults. Customise away to make it solve yours.
+
 
 
 ## "Hey, this looks like it was vibe-coded in a few hours!"
