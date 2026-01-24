@@ -130,18 +130,18 @@ Hobbyboard was built to make sense of all the collected inspiration without much
 
 Most knobs you'd want to turn are in `hobbyboard.toml`.
 
-| Section                  | Setting           | What it does                                       | Default                  |
-| :----------------------- | :---------------- | :------------------------------------------------- | :----------------------- |
-| **[paths]**              | `raw_media_dir`   | Your image hoard location. Read-only (we promise). | `"raw_images"`           |
-|                          | `dist_dir`        | Where we dump thumbnails, DBs, and metadata.       | `"dist"`                 |
-| **[ai]**                 | `provider`        | `ollama` (free/slow), `openai`, or `gemini`.       | `"ollama"`               |
-|                          | `vision_model`    | The eyes. e.g., `llava`, `gemini-1.5-flash`.       | `"llava"`                |
-|                          | `embedding_model` | The brain. Converts text to numbers.               | `"mxbai-embed-large-v1"` |
-| **[server]**             | `host`            | `0.0.0.0` to expose to your LAN.                   | `"0.0.0.0"`              |
-|                          | `port`            | Why 9625? I mashed the numpad.                     | `9625`                   |
-| **[search]**             | `vector_weight`   | 0.0-1.0. Higher = more "Concept/Vibe" matching.    | `0.7`                    |
-|                          | `fts_weight`      | 0.0-1.0. Higher = exact keyword matching.          | `0.3`                    |
-| **[search.fts_weights]** | `manual_tags`     | Multiplier. If *you* typed it, it matters more.    | `2.0`                    |
+| Section                  | Setting           | What it does                                                 | Default                  |
+| :----------------------- | :---------------- | :----------------------------------------------------------- | :----------------------- |
+| **[paths]**              | `raw_media_dir`   | Your image hoard location. Read-only (we promise).           | `"raw_images"`           |
+|                          | `dist_dir`        | Where we dump thumbnails, DBs, and metadata.                 | `"dist"`                 |
+| **[ai]**                 | `provider`        | `ollama` (free/slow), `openai`, or `gemini`.                 | `"ollama"`               |
+|                          | `vision_model`    | The eyes. e.g., `qwen3-vl:8b`, `gemini-3-flash-preview`, `gpt-5-mini`. | `"qwen3-vl:8b"`          |
+|                          | `embedding_model` | The fast model that converts text to vectors. It is loaded to memory by Hobbyboard. | `"mxbai-embed-large-v1"` |
+| **[server]**             | `host`            | `0.0.0.0` to expose to your LAN.                             | `"0.0.0.0"`              |
+|                          | `port`            | Why 9625? I mashed the numpad.                               | `9625`                   |
+| **[search]**             | `vector_weight`   | 0.0-1.0. Higher = more "Concept/Vibe" matching.              | `0.7`                    |
+|                          | `fts_weight`      | 0.0-1.0. Higher = exact keyword matching.                    | `0.3`                    |
+| **[search.fts_weights]** | `manual_tags`     | Multiplier. If *you* typed it, it matters more.              | `2.0`                    |
 
 ## "Hey, this looks like it was vibe-coded in a few hours!"
 
