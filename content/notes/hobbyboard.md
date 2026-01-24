@@ -122,7 +122,14 @@ Hobbyboard was built to make sense of all the collected inspiration without much
 
 6. `./target/release/hobbyboard serve`
 
+
+
+## Configuration
+
+
+
 ## "Hey, this looks like it was vibe-coded in a few hours!"
+
 First of all, rude. Second, I am so glad you read this far.
 It took **days**. Yes, Hobbyboard is built with Gemini-3 and a lot of patience. Mostly patience. I take pride in knowing exactly what to ask the LLMs to do, and then verifying that they actually did it correctly (they usually don't).
 
