@@ -216,7 +216,7 @@ The visual foundation uses a hybrid approach: a solid base color, a noise textur
 
 4. **Modal UX:** Click outside the image to close. It just works.
 
-5. **Drag & Drop:** Upload media like it's 2026.
+5. **Drag & Drop:** Upload media like it's 2026.Rescan from the UI if you wish.
 
 6. **Native Share Sheet:** Share a board/image using your OS's native tools.
 
