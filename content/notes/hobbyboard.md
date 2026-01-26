@@ -236,6 +236,6 @@ My AI agent will review the PR and run it through a battery of tests first. If m
 **How do I pay you?**
 You don't. Hobbyboard solves *my* problem. I don't want to turn this into a job. If it solves your problem too, that's cool.
 
-## About the Author
+## Who are you? What else do you do?
 **Aravindh.net**
 I work a full-time job. This is what happens when I have free time and too much coffee.
