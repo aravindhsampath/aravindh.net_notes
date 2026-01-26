@@ -238,4 +238,4 @@ You don't. Hobbyboard solves *my* problem. I don't want to turn this into a job.
 
 ## Who are you? What else do you do?
 [Aravindh.net](http://Aravindh.net)
-I work a full-time job. This is what happens when I have free time and too much coffee.
+I work a full-time job as Site Reliability Engineer. Dad of two curious and active kids. I do wood working for inner peace. 
