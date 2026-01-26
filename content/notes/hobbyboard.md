@@ -218,13 +218,15 @@ The visual foundation uses a hybrid approach: a solid base color, a noise textur
 
 5. **Drag & Drop:** Upload media like it's 2026.Rescan from the UI if you wish.
 
-6. **Native Share Sheet:** Share a board/image using your OS's native tools.
+6. Auto tags are nice, but weigh manual tags and notes more.
 
-7. **Google Takeout-style Export:** Download a ZIP of your original assets and metadata.
+7. **Native Share Sheet:** Share a board/image using your OS's native tools.
 
-8. **Logs:** Something broke? Check the web UI logs.
+8. **Google Takeout-style Export:** Download a ZIP of your original assets and metadata.
 
-9. **The Search Bar:** It expands. It has a gradient. It was "Variant Z" and it was the right choice.
+9. **Logs:** Something broke? Check the web UI logs.
+
+10. **The Search Bar:** It expands. It has a gradient. It was "Variant Z" and it was the right choice.
 
 
 
