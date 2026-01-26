@@ -231,7 +231,7 @@ What kind of machine do you have? Find out and tell me?. (It probably will, it's
 I am cheap, creative, and an engineer who would rather spend EUR 300 on tools and 1 month of free time to build a desk for kids than going to IKEA to buy a similar looking one for EUR 30. 
 
 **Can my AI send PRs?**
-My AI agent will review your AI agent's PR. If my AI deems it worthy, I might manually click "Merge".
+My AI agent will review the PR and run it through a battery of tests first. If my AI deems it worthy, I will manually review it.
 
 **How do I pay you?**
 You don't. Hobbyboard solves *my* problem. I don't want to turn this into a job. If it solves your problem too, that's cool.
