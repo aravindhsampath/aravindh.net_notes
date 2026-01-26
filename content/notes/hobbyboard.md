@@ -216,6 +216,12 @@ The visual foundation uses a hybrid approach: a solid base color, a noise textur
 
 9. **The Search Bar:** It expands. It has a gradient. It was "Variant Z" and it was the right choice.
 
+
+
+## How does it do this?
+
+You want all the gory details and the full workflow. It's coming. It's on my todo list.
+
 ## FAQ
 
 **I have 50K images, will Hobbyboard handle it?**
