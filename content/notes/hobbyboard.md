@@ -273,4 +273,5 @@ You don't. Hobbyboard solves *my* problem. I don't want to turn this into a job.
 I work a full-time job as Site Reliability Engineer. Dad of two curious and active kids. I do wood working for inner peace. 
 
 ## License
-
+MIT
+Do what you want with what I shared publicly. Dont sue me. I dont take responsibility for what you choose to do with what I shared for free.
