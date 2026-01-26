@@ -149,6 +149,26 @@ Most knobs you'd want to turn are in `hobbyboard.toml`.
   | | `auto_tags` | Multiplier. AI tags weight. | `1.0` |
   | | `ocr` | Multiplier. Text found inside images. | `0.8` |                  |
 
+## Notes on AI Configuration
+
+### Vision Models
+Configured via `[ai].vision_model`. The prompt can be customized in `[ai].prompt_analysis` to specialize the indexing for specific hobbies (e.g., specifying wood species for woodworking or fabric types for sewing).
+
+| Provider   | Recommended Model        | Use Case                                                     |
+| :--------- | :----------------------- | :----------------------------------------------------------- |
+| **Ollama** | `qwen3-vl:8b`            | Slow, but local performance/privacy. Inexpensive.            |
+| **OpenAI** | `gpt-5-mini`             | High accuracy, low cost, requires API key.                   |
+| **Gemini** | `gemini-3-flash-preview` | Excellent OCR and fast processing. Low cost, requires API key. |
+
+### Embedding Models
+Local execution via `fastembed-rs`. Models are selected via `[ai].embedding_model`.
+
+| Model                             | Dimensions | Size    | Latency (Apple Silicon M2) |
+| :-------------------------------- | :--------- | :------ | :------------------------- |
+| **nomic-embed-text-v1.5**         | 768        | ~275 MB | 14 ms                      |
+| **mxbai-embed-large-v1**          | 1024       | ~670 MB | 34 ms                      |
+| **Alibaba-NLP/gte-large-en-v1.5** | 1024       | ~1.6 GB | 42 ms                      |
+
 ## "Hey, this looks like it was vibe-coded in a few hours!"
 
 First, I am so glad you read until here. Second, It took **days**. 
