@@ -154,7 +154,7 @@ Most knobs you'd want to turn are in `hobbyboard.toml`.
 First of all, rude. Second, I am so glad you read this far.
 It took **days**. Yes, Hobbyboard is built with Gemini-3 and a lot of patience. Mostly patience. I take pride in knowing exactly what to ask the LLMs to do, and then verifying that they actually did it correctly (they usually don't).
 
-
+No humans were hurt mentally or economically while making this. :-) 
 
 ## Core Principles
 - **Self-hosting & Privacy:** One binary, a database, and a local model. Your data doesn't leave your machine unless you explicitly tell it to (by using a cloud AI provider).
