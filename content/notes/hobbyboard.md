@@ -29,7 +29,7 @@ Hobbyboard was built to make sense of all the collected inspiration without much
 
 **KISS - Keep it standard and simple** Your data lives in SQLite and local folders. If you hate HobbyBoard later, you can take your images, tags, notes, and boards elsewhere.
 
-
+**Tastefully designed** - whose taste? Ofcourse, the author’s.
 
 ## Who is this for?
 - **Woodworkers / Makers:** "I saw a joinery technique once..."
