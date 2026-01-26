@@ -151,12 +151,20 @@ Most knobs you'd want to turn are in `hobbyboard.toml`.
 
 ## "Hey, this looks like it was vibe-coded in a few hours!"
 
-First, I am so glad you read until here. Second, I am so glad you read this far.
-It took **days**. Yes, Hobbyboard is built with Gemini-3 and a lot of patience. Mostly patience. I take pride in knowing exactly what to ask the LLMs to do, and then verifying that they actually did it correctly (they usually don't).
+First, I am so glad you read until here. Second, It took **days**. 
+
+Yes, Hobbyboard is built with Gemini-3 and a lot of patience. Mostly patience. I take pride in knowing exactly what to ask the LLMs to do, and then verifying that they actually did it correctly (they usually don't).
 
 No humans were hurt mentally or economically while making this. :-) 
 
+
+
+## Are you going to abandon this soon?
+
+I understand the hesitation with so many projects coded with assitance from LLMs. I make no promises about future, but this solves my problem personally, and I use it every week. So, I will most likely maintain it atleast in the feature set I care about. New features? If you can convince me something is useful and still adheres to the core usefulness of this project, I will roll up my sleeves and get it done. 
+
 ## Core Principles
+
 - **Self-hosting & Privacy:** One binary, a database, and a local model. Your data doesn't leave your machine unless you explicitly tell it to (by using a cloud AI provider).
 - **Minimal Resource Footprint:** There are enough Electron apps and bloated websites slowing down your computer. Hobbyboard is built for speed and efficiency.
 - **2026 UI/UX:** Fast, responsive, and easy on the eyes. It should work like it’s from the future, even if it’s running on a machine from 2018.
