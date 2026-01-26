@@ -218,7 +218,7 @@ The visual foundation uses a hybrid approach: a solid base color, a noise textur
 
 5. **Drag & Drop:** Upload media like it's 2026.Rescan from the UI if you wish.
 
-6. Auto tags are nice, but weigh manual tags and notes more.
+6. Manual Auto tags are nice, but weigh manual tags and notes more.
 
 7. **Native Share Sheet:** Share a board/image using your OS's native tools.
 
