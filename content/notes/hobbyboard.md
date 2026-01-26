@@ -225,7 +225,7 @@ You want all the gory details and the full workflow. It's coming. It's on my tod
 ## FAQ
 
 **I have 50K images, will Hobbyboard handle it?**
-What kind of machine do you have? Find out and tell me. (It probably will, it's Rust).
+What kind of machine do you have? Find out and tell me?. (It probably will, it's Rust).
 
 **Why not just use $SaaS?**
 I am cheap, creative, and an engineer who would rather spend EUR 300 on tools and 1 month of free time to build a desk for kids than going to IKEA to buy a similar looking one for EUR 30. 
