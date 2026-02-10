@@ -67,7 +67,7 @@ By defining the host in your config, you remove the need to pass flags manually:
    alias ssh="ghostty +ssh"
  ```
 
- Now, running ssh aux-aravindh will use your specific key AND invoke Ghostty's terminfo injection automatically.
+Now, running ssh aux-aravindh will use your specific key AND invoke Ghostty's terminfo injection automatically.
 
 
 
